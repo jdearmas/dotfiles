@@ -60,7 +60,7 @@
  
   " 'altercation/vim-colors-solarized'
   set background=dark
-  colorscheme solarized
+  colorscheme space 
   
   " save folds
   augroup remember_folds

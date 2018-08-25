@@ -14,6 +14,7 @@ fi
 # User specific aliases and functions
 alias gtw='cd ~/Documents/Git/usf_rc_tfawcett/waltonlab/code/fra'
 alias u='cd ..'
+alias v='vim'
 alias s='ls -al'
 alias g='grep'
 alias c='clear'
