@@ -9,7 +9,7 @@ dotfiles is a repo that contains my most updated configuration files. In additio
 [--Run](###Run)
 
     
-<a name="Warning"/>
+
 ## Warning 
 Once properly install, this repo will automatically pull from github repo 
 
