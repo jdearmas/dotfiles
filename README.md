@@ -2,14 +2,14 @@
 dotfiles is a repo that contains my most updated configuration files. In addition, it places them in the home directory. Lastly, the repo sets up a recursive update.
 
 # Table of Contents
-[Warning](#Warning)  
-[Usage](#Usage)
+[Warning](##Warning)  
+[Usage](##Usage)
 [Installation](##Installation)  
 [--Prep](###Prep)
 [--Run](###Run)
 
     
-    
+<a name="Warning"/>
 ## Warning 
 Once properly install, this repo will automatically pull from github repo 
 
