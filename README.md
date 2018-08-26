@@ -32,6 +32,6 @@ git clone jdearmas/dotfiles
 
 ### Run
 ``` 
-cd ~Documents/git/dotfiles
+cd ~/Documents/git/dotfiles
 ./setup
 ```
