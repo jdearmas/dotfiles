@@ -128,6 +128,3 @@ function man {
     [[ $ok -eq 0 && -n "$pre" ]] && printf '%s' "$pre" | less || printf 'Got nothing.\n' >&2
     return $ok
 }
-
-# User specific aliases and functions
-module add null apps/vim/8.0 apps/tmux/2.2 apps/R/3.4.0 apps/matlab
