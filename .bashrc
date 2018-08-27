@@ -1,3 +1,6 @@
+# update configuration
+~/Documents/git/dotfiles/setup.sh 1
+
 
 # Add Vim-mode in Bash
 set -o vi
