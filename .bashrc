@@ -22,8 +22,7 @@ alias s='ls -al'
 alias g='grep'
 alias c='clear'
 alias gl='git log --graph --oneline --decorate --all'
-setxkbmap -layout dvorak
-#sudo localectl set-keymap us-dvorak
+
 
 # The various escape codes that we can use to color our prompt.
         RED="\[\033[0;31m\]"
