@@ -33,5 +33,5 @@ git clone https://github.com/jdearmas/dotfiles.git
 ### Run
 ``` 
 cd ~/Documents/git/dotfiles
-./setup 1
+./setup.sh 1
 ```
