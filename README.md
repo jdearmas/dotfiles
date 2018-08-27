@@ -27,7 +27,7 @@ The executable bash script ``` setup.sh ``` automatically:
 ```
 mkdir ~/Documents/git/
 cd ~/Documents/git
-git clone git@github.com:jdearmas/dotfiles.git
+git clone https://github.com/jdearmas/dotfiles.git
 ```
 
 ### Run
