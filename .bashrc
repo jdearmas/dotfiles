@@ -23,6 +23,10 @@ alias g='grep'
 alias c='clear'
 alias gl='git log --graph --oneline --decorate --all'
 
+	# directory movement
+alias cdd='cd ~/Documents/'
+alias cddw='cd ~/Downloads/'
+alias cdg='cd ~/Documents/git'
 
 # The various escape codes that we can use to color our prompt.
         RED="\[\033[0;31m\]"
