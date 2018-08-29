@@ -27,6 +27,7 @@ alias gl='git log --graph --oneline --decorate --all'
 alias cdd='cd ~/Documents/'
 alias cddw='cd ~/Downloads/'
 alias cdg='cd ~/Documents/git'
+alias cdgd='cd ~/Documents/git/dotfiles'
 
 # The various escape codes that we can use to color our prompt.
         RED="\[\033[0;31m\]"
