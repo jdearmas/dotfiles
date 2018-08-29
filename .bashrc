@@ -1,5 +1,5 @@
 # update configuration
-~/Documents/git/dotfiles/setup.sh 1
+#~/Documents/git/dotfiles/setup.sh 1
 
 
 # Add Vim-mode in Bash
@@ -35,7 +35,11 @@ alias cdgd='cd ~/Documents/git/dotfiles'
       GREEN="\[\033[0;32m\]"
        BLUE="\[\033[38;5;27m\]"
   LIGHT_RED="\[\033[1;31m\]"
-LIGHT_GREEN="\[\033[1;32m\]"
+LIGHT_BOLD_CYAN="\[\033[38;5;51m\]"
+#LIGHT_GREEN="\[\033[38;5;208m\]"
+#LIGHT_BLUE="\[\033[0;34m\]"
+#LIGHT_CYAN="\[\033[0;36m\]"
+#LIGHT_GREEN="\[\033[1;32m\]"
       WHITE="\[\033[1;37m\]"
  LIGHT_GRAY="\[\033[0;37m\]"
  COLOR_NONE="\[\e[0m\]"
@@ -104,7 +108,7 @@ LIGHT_GREEN="\[\033[1;32m\]"
    fi
 
    # Set the bash prompt variable.
-	 PS1="\n${BLUE}\u${RED}@${GREEN}\h:${RED}\w\n${RED}${PYTHON_VIRTUALENV}${WHITE} ${BRANCH}${YELLOW} ${PROMPT_SYMBOL}${COLOR_NONE} "
+	 PS1="\n${BLUE}\u${RED}@${LIGHT_BOLD_CYAN}\h:${RED}\w\n${RED}${PYTHON_VIRTUALENV}${WHITE} ${BRANCH}${YELLOW} ${PROMPT_SYMBOL}${COLOR_NONE} "
  }
 
  # Tell bash to execute this function just before displaying its prompt.
