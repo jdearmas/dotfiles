@@ -36,7 +36,7 @@ alias cdgd='cd ~/Documents/git/dotfiles'
        BLUE="\[\033[38;5;27m\]"
   LIGHT_RED="\[\033[1;31m\]"
 LIGHT_BOLD_CYAN="\[\033[38;5;51m\]"
-#LIGHT_GREEN="\[\033[38;5;208m\]"
+LIGHT_GREEN="\[\033[38;5;208m\]"
 #LIGHT_BLUE="\[\033[0;34m\]"
 #LIGHT_CYAN="\[\033[0;36m\]"
 #LIGHT_GREEN="\[\033[1;32m\]"
@@ -56,7 +56,10 @@ LIGHT_BOLD_CYAN="\[\033[38;5;51m\]"
  }
 
  function parse_git_branch() {
-   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
+   git branch --no-color 2> /dev/null           \
+					 | sed -e '/^[^*]/d'                  \
+					 -e 's/* /*/'                         \
+					 -e "s/* \(.*\)/\1$(parse_git_dirty)/"
  }
 
  function parse_git_dirty() {
@@ -103,13 +106,22 @@ LIGHT_BOLD_CYAN="\[\033[38;5;51m\]"
    # Set the BRANCH variable.
    if is_git_repository ; then
      set_git_branch
+		 BRANCH={$BRANCH}
    else
      BRANCH=''
    fi
 
+	GIT="${LIGHT_GREEN}${BRANCH}"
+	 PY="${BLUE}${PYTHON_VIRTUALENV}"
+	 PS=" ${COLOR_NONE}${PROMPT_SYMBOL}${BLUE} "
+	 INDICTORS="\n${GIT}${PY}${PS}"
    # Set the bash prompt variable.
-	 PS1="\n${BLUE}\u${RED}@${LIGHT_BOLD_CYAN}\h:${RED}\w\n${RED}${PYTHON_VIRTUALENV}${WHITE} ${BRANCH}${YELLOW} ${PROMPT_SYMBOL}${COLOR_NONE} "
+	 PS1="\n${BLUE}\u${RED}@${LIGHT_BOLD_CYAN}\h:${RED}\w${INDICTORS}"
+
  }
+
+#	 PS1="\n${BLUE}\u${RED}@${LIGHT_BOLD_CYAN}\h:${RED}\w\n${RED}${PYTHON_VIRTUALENV}${WHITE}"
+#	 ${BRANCH}${LIGHT_GREEN} ${PROMPT_SYMBOL}${COLOR_NONE} "
 
  # Tell bash to execute this function just before displaying its prompt.
  PROMPT_COMMAND=set_bash_prompt
@@ -119,12 +131,6 @@ LIGHT_BOLD_CYAN="\[\033[38;5;51m\]"
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
-
-# Vim-mod in Bash ( visual indicator )
-#set vi-cmd-mode-string \1\e[2 q\2
-set vi-ins-mode-string "+"
-#set vi-cmd-mode-string ":"
-set vi-cmd-mode-string "\1\e[1;31m\2:\1\e[0m\2"
 
 
 # Man pages on Git bash
