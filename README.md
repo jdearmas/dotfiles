@@ -1,8 +1,9 @@
-# dotfiles
+# dotfiles ⊙
 dotfiles is a repo that contains my most updated configuration files. In addition, it places them in the home directory. Lastly, the repo sets up a recursive update.
 
 <p align="center">
   <img src="https://github.com/jdearmas/dotfiles/blob/master/doc/preview.PNG" width="750" height="450">
+  <img src="https://github.com/jdearmas/dotfiles/blob/master/doc/preview2.PNG" width="750" height="450">
 
 # Table of Contents
 [Warning](##Warning)  
