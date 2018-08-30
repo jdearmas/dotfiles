@@ -21,7 +21,10 @@ alias v='vim'
 alias s='ls -al'
 alias g='grep'
 alias c='clear'
+
+	# git alias
 alias gl='git log --graph --oneline --decorate --all'
+alias gs='git status'
 
 	# directory movement
 alias cdd='cd ~/Documents/'
