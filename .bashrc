@@ -31,7 +31,8 @@ alias cdgd='cd ~/Documents/git/dotfiles'
 
 # The various escape codes that we can use to color our prompt.
         RED="\[\033[0;31m\]"
-     YELLOW="\[\033[33m\]"
+     #YELLOW="\[\033[33m\]"
+     YELLOW="\[\033[38;5;11m\]"
       GREEN="\[\033[0;32m\]"
        BLUE="\[\033[38;5;27m\]"
   LIGHT_RED="\[\033[1;31m\]"
@@ -112,7 +113,7 @@ LIGHT_GREEN="\[\033[38;5;208m\]"
    fi
 
 	GIT="${LIGHT_GREEN}${BRANCH}"
-	 PY="${BLUE}${PYTHON_VIRTUALENV}"
+	 PY="${YELLOW}${PYTHON_VIRTUALENV}"
 	 PS=" ${BLUE}${PROMPT_SYMBOL}${COLOR_NONE} "
 	 INDICTORS="\n${GIT}${PY}${PS}"
    # Set the bash prompt variable.
