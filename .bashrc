@@ -113,7 +113,7 @@ LIGHT_GREEN="\[\033[38;5;208m\]"
 
 	GIT="${LIGHT_GREEN}${BRANCH}"
 	 PY="${BLUE}${PYTHON_VIRTUALENV}"
-	 PS=" ${COLOR_NONE}${PROMPT_SYMBOL}${BLUE} "
+	 PS=" ${BLUE}${PROMPT_SYMBOL}${COLOR_NONE} "
 	 INDICTORS="\n${GIT}${PY}${PS}"
    # Set the bash prompt variable.
 	 PS1="\n${BLUE}\u${RED}@${LIGHT_BOLD_CYAN}\h:${RED}\w${INDICTORS}"
