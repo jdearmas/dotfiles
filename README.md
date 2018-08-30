@@ -3,6 +3,7 @@ dotfiles is a repo that contains my most updated configuration files. In additio
 
 <p align="center">
   <img src="https://github.com/jdearmas/dotfiles/blob/master/doc/preview.PNG" width="750" height="450">
+  <img src="https://github.com/jdearmas/dotfiles/blob/master/doc/preview2.PNG" width="750" height="450">
 
 # Table of Contents
 [Warning](##Warning)  
