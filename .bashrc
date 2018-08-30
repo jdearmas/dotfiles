@@ -90,7 +90,7 @@ LIGHT_GREEN="\[\033[38;5;208m\]"
    if test -z "$VIRTUAL_ENV" ; then
        PYTHON_VIRTUALENV=""
    else
-       PYTHON_VIRTUALENV="${BLUE}[`basename \"$VIRTUAL_ENV\"`]${COLOR_NONE} "
+       PYTHON_VIRTUALENV="${BLUE}[`basename\"$VIRTUAL_ENV\"`]${COLOR_NONE}"
    fi
  }
 
