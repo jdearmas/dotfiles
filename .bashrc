@@ -21,6 +21,10 @@ alias v='vim'
 alias s='ls -al'
 alias g='grep'
 alias c='clear'
+alias c='clear'
+
+	# sys admin alias
+alias ds='du -sh ./'
 
 	# git alias
 alias gl='git log --graph --oneline --decorate --all'
@@ -53,11 +57,13 @@ LIGHT_GREEN="\[\033[38;5;208m\]"
    git branch > /dev/null 2>&1
  }
 
+
  function set_git_branch {
    # Set the final branch string
    BRANCH=`parse_git_branch`
    local TIME=`fmt_time` # format time for prompt string
  }
+
 
  function parse_git_branch() {
    git branch --no-color 2> /dev/null           \
@@ -66,9 +72,11 @@ LIGHT_GREEN="\[\033[38;5;208m\]"
 					 -e "s/* \(.*\)/\1$(parse_git_dirty)/"
  }
 
+
  function parse_git_dirty() {
    [[ $(git status 2> /dev/null | tail -n1) != *"working directory clean"* ]] && echo "*"
  }
+
 
  fmt_time () { #format time just the way I likes it
      if [ `date +%p` = "PM" ]; then
@@ -79,8 +87,9 @@ LIGHT_GREEN="\[\033[38;5;208m\]"
      date +"%l:%M:%S$meridiem"|sed 's/ //g'
  }
 
- # Return the prompt symbol to use, colorized based on the return value of the
- # previous command.
+
+ # Return the prompt symbol to use, colorized based 
+ # on the return value of the previous command.
  function set_prompt_symbol () {
    if test $1 -eq 0 ; then
        PROMPT_SYMBOL="\$"
@@ -88,6 +97,7 @@ LIGHT_GREEN="\[\033[38;5;208m\]"
        PROMPT_SYMBOL="${LIGHT_RED}\$${COLOR_NONE}"
    fi
  }
+
 
  # Determine active Python virtualenv details.
  function set_virtualenv () {
@@ -98,9 +108,11 @@ LIGHT_GREEN="\[\033[38;5;208m\]"
    fi
  }
 
+
  # Set the full bash prompt.
  function set_bash_prompt () {
-   # Set the PROMPT_SYMBOL variable. We do this first so we don't lose the
+   # Set the PROMPT_SYMBOL variable. 
+	 # We do this first so we don't lose the
    # return value of the last command.
    set_prompt_symbol $?
 
@@ -124,8 +136,6 @@ LIGHT_GREEN="\[\033[38;5;208m\]"
 
  }
 
-#	 PS1="\n${BLUE}\u${RED}@${LIGHT_BOLD_CYAN}\h:${RED}\w\n${RED}${PYTHON_VIRTUALENV}${WHITE}"
-#	 ${BRANCH}${LIGHT_GREEN} ${PROMPT_SYMBOL}${COLOR_NONE} "
 
  # Tell bash to execute this function just before displaying its prompt.
  PROMPT_COMMAND=set_bash_prompt
