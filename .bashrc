@@ -15,26 +15,27 @@ fi
 # export SYSTEMD_PAGER=
 
 # User specific aliases and functions
-alias gtw='cd ~/Documents/Git/usf_rc_tfawcett/waltonlab/code/fra'
-alias u='cd ..'
-alias v='vim'
-alias s='ls -al'
-alias g='grep'
-alias c='clear'
-alias c='clear'
-
-	# sys admin alias
-alias ds='du -sh ./'
-
-	# git alias
-alias gl='git log --graph --oneline --decorate --all'
-alias gs='git status'
-
-	# directory movement
-alias cdd='cd ~/Documents/'
-alias cddw='cd ~/Downloads/'
-alias cdg='cd ~/Documents/git'
-alias cdgd='cd ~/Documents/git/dotfiles'
+	alias gtw='cd ~/Documents/Git/usf_rc_tfawcett/waltonlab/code/fra'
+	alias u='cd ..'
+	alias v='vim'
+	alias s='ls -al'
+	alias g='grep'
+	alias c='clear'
+	alias c='clear'
+	
+		# sys admin alias
+	alias ds='du -sh ./'
+	alias dsa='du -h --max-depth=1'
+	
+		# git alias
+	alias gl='git log --graph --oneline --decorate --all'
+	alias gs='git status'
+	
+		# directory movement
+	alias cdd='cd ~/Documents/'
+	alias cddw='cd ~/Downloads/'
+	alias cdg='cd ~/Documents/git'
+	alias cdgd='cd ~/Documents/git/dotfiles'
 
 # The various escape codes that we can use to color our prompt.
         RED="\[\033[0;31m\]"
