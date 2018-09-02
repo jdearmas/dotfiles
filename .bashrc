@@ -30,6 +30,7 @@ fi
 		# git alias
 	alias gl='git log --graph --oneline --decorate --all'
 	alias gs='git status'
+	alias gaa='git add .'
 	
 		# directory movement
 	alias cdd='cd ~/Documents/'
