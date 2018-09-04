@@ -1,4 +1,3 @@
-BoldAsFont=yes
 Term=xterm-256color
 BoldAsColour=yes
 Black=7,54,66
@@ -22,7 +21,7 @@ BackgroundColour=0,13,15
 CursorColour=255,169,83
 CursorType=block
 Font=Consolas
-FontHeight=16
+FontHeight=14
 Columns=80
 Rows=23
 FontWeight=700
