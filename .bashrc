@@ -31,6 +31,7 @@ fi
 	alias gl='git log --graph --oneline --decorate --all'
 	alias gs='git status'
 	alias gaa='git add .'
+	alias gc='git commit'
 	alias gplom='git pull origin master' 
 	alias gpsom='git push origin master'
 	
