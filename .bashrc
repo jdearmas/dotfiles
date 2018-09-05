@@ -42,6 +42,9 @@ fi
 	alias cdg='cd ~/Documents/git'
 	alias cdgd='cd ~/Documents/git/dotfiles'
 
+		# directory movement mk. 2
+	alias gtd='function _gtd(){ dp="$1"; fdp=$(find . -iname $dp); cd $fdp; };_gtd'
+
 # The various escape codes that we can use to color our prompt.
         RED="\[\033[0;31m\]"
      #YELLOW="\[\033[33m\]"
