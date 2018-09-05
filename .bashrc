@@ -19,6 +19,7 @@ fi
 	alias u='cd ..'
 	alias v='vim'
 	alias s='ls -al'
+	alias sl='s | less'
 	alias g='grep'
 	alias c='clear'
 	alias c='clear'
