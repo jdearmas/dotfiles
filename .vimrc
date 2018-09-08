@@ -43,6 +43,9 @@
   
   " List all buffers and jump to them using 'gb'
   nnoremap gb :ls<CR>:b<Space>
+
+	" List all recently opened files and open a new buffer
+  nnoremap gs :browse oldfiles<CR>
   
   "Clear search highlight 
   nnoremap ,<space> :nohlsearch<CR>
