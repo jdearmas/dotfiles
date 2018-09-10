@@ -7,9 +7,9 @@ set -o vi
 
 # .bashrc
 # Source global definitions
-if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
-fi
+	#if [ -f /etc/bashrc ]; then
+	#. /etc/bashrc
+	#fi
 
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
@@ -154,13 +154,6 @@ LIGHT_GREEN="\[\033[38;5;208m\]"
 
  # Tell bash to execute this function just before displaying its prompt.
  PROMPT_COMMAND=set_bash_prompt
-
-
-# Source global definitions
-if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
-fi
-
 
 # Man pages on Git bash
 function man {
