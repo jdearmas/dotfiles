@@ -30,6 +30,7 @@ set -o vi
 	# sys admin alias
 		alias ds='du -sh ./'
 		alias dsa='du -h --max-depth=1'
+		alias sqj='squeue -o"%.7i %.9P %.8j %.8u %.2t %.10M %.6D %C" | grep -i jdearmas | less'
 	
 	# git alias
 		alias gl='git log --graph --oneline --decorate --all'
@@ -168,3 +169,4 @@ function man {
     [[ $ok -eq 0 && -n "$pre" ]] && printf '%s' "$pre" | less || printf 'Got nothing.\n' >&2
     return $ok
 }
+
