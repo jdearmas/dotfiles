@@ -22,34 +22,36 @@ set -o vi
 	alias sl='s | less'
 	alias g='grep'
 	alias c='clear'
-	alias c='clear'
-	
-		# sys admin alias
-	alias ds='du -sh ./'
-	alias dsa='du -h --max-depth=1'
-	
-		# git alias
-	alias gl='git log --graph --oneline --decorate --all'
-	alias gs='git status'
-	alias gaa='git add .'
-	alias gc='git commit'
-	alias gplom='git pull origin master' 
-	alias gpsom='git push origin master'
-	
-		# directory movement
-	alias cdd='cd ~/Documents/'
-	alias cddw='cd ~/Downloads/'
-	alias cdg='cd ~/Documents/git'
-	alias cdgd='cd ~/Documents/git/dotfiles'
 
-			# Computer-dependent
+	# ssh
+		alias sshjc='ssh jdearmas@circe.rc.usf.edu'
+	
+	# sys admin alias
+		alias ds='du -sh ./'
+		alias dsa='du -h --max-depth=1'
+	
+	# git alias
+		alias gl='git log --graph --oneline --decorate --all'
+		alias gs='git status'
+		alias gaa='git add .'
+		alias gc='git commit'
+		alias gplom='git pull origin master' 
+		alias gpsom='git push origin master'
+	
+	# directory movement
+		alias cdd='cd ~/Documents/'
+		alias cddw='cd ~/Downloads/'
+		alias cdg='cd ~/Documents/git'
+		alias cdgd='cd ~/Documents/git/dotfiles'
+
+	# Computer-dependent
 			alias cdnb='cd ~/Documents/git/usf_rc_tfawcett/nsf_crn/bash/serial'
 			alias cdrep='cd /rcfs/workprojects/waltonlab/ephys'
 
 
-		# directory movement mk. 2
-	alias gtd='function _gtd(){ dp="$1"; fdp=$(find . -iname $dp -type d); cd $fdp; };_gtd'
-	alias f='find . -iname'
+	# directory movement mk. 2
+		alias gtd='function _gtd(){ dp="$1"; fdp=$(find . -iname $dp -type d); cd $fdp; };_gtd'
+		alias f='find . -iname'
 
 # The various escape codes that we can use to color our prompt.
         RED="\[\033[0;31m\]"
