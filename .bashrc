@@ -1,6 +1,7 @@
 # update configuration
 ~/Documents/git/dotfiles/setup.sh 1
-
+# 1 means pull
+# 0 mean do nothing
 
 # Add Vim-mode in Bash
 set -o vi
