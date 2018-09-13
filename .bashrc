@@ -35,7 +35,7 @@ export TERM=xterm
 		alias dsa='du -h --max-depth=1'
 		alias sqj='squeue -o"%.7i %.9P %.8j %.8u %.2t %.10M %.6D %C" | grep -i jdearmas'
 		ws() {
-						watch -n 3 'squeue -o "%.7i %.9P %.8j %.8u %.2t %.10M %.6D %C" | grep -E "jdearmas|CPUS"'
+						watch -n 3 'squeue -o "%.9i %.9P %.8j %.8u %.2t %.10M %.6D %C" | grep -E "jdearmas|CPUS"'
 		}
 
 	# git alias
