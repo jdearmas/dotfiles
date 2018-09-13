@@ -15,6 +15,9 @@ set -o vi
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 
+# Allow Aliases To Work on from 'st' ssh to 'xterm'
+export TERM=xterm
+
 # User specific aliases and functions
 	alias gtw='cd ~/Documents/Git/usf_rc_tfawcett/waltonlab/code/fra'
 	alias u='cd ..'
