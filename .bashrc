@@ -34,9 +34,10 @@ export TERM=xterm
 		alias ds='du -sh ./'
 		alias dsa='du -h --max-depth=1'
 		alias sqj='squeue -o"%.7i %.9P %.8j %.8u %.2t %.10M %.6D %C" | grep -i jdearmas'
-		alias sqhj='squeue -o"%.7i %.9P %.8j %.8u %.2t %.10M %.6D %C" > tmp; sed -n -e '1p' -e '/jdearmas/p' < tmp; rm tmp;'
-		alias wsqhj='watch -n 3 squeue -o"%.7i %.9P %.8j %.8u %.2t %.10M %.6D %C" > tmp; sed -n -e '1p' -e '/jdearmas/p' < tmp; rm tmp;'
-	
+		ws() {
+						watch -n 3 'squeue -o "%.7i %.9P %.8j %.8u %.2t %.10M %.6D %C" | grep -E "jdearmas|CPUS"'
+		}
+
 	# git alias
 		alias gl='git log --graph --oneline --decorate --all'
 		alias gs='git status'
