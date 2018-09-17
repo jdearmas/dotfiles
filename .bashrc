@@ -31,7 +31,7 @@ export GREP_OPTIONS="--color=always"
 	alias c='clear'
 
 	# ssh
-		alias sshjc='ssh jdearmas@circe.rc.usf.edu'
+		alias sshjc='ssh jdearmas@circe.rc.usf.edu -Y'
 	
 	# sys admin alias
 		alias ds='du -sh ./'
