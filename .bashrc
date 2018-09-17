@@ -24,7 +24,7 @@ export TERM=xterm
 	alias v='vim'
 	alias s='ls -al'
 	alias sl='s | less'
-	alias g='grep'
+	alias g='grep -rin --color=always'
 	alias c='clear'
 
 	# ssh
