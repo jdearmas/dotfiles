@@ -18,6 +18,9 @@ set -o vi
 # Allow Aliases To Work on from 'st' ssh to 'xterm'
 export TERM=xterm
 
+# always grep with color 
+export GREP_OPTIONS="--color=always"
+
 # User specific aliases and functions
 	alias gtw='cd ~/Documents/Git/usf_rc_tfawcett/waltonlab/code/fra'
 	alias u='cd ..'
