@@ -15,7 +15,7 @@ set -o vi
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 
-# Allow Aliases To Work on from 'st' ssh to 'xterm'
+# Allow Aliases To Work from 'st' ssh to 'xterm'
 export TERM=xterm
 
 # always grep with color 
@@ -32,6 +32,9 @@ export TERM=xterm
 
 	# ssh
 		alias sshjc='ssh jdearmas@circe.rc.usf.edu -Y'
+
+	# SLURM (CIRCE)
+		alias scj='scancel -u jdearmas'
 	
 	# sys admin alias
 		alias ds='du -sh ./'
