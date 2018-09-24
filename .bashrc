@@ -27,6 +27,7 @@ export TERM=xterm
 	alias v='vim'
 	alias s='ls -al'
 	alias sl='s | less'
+	alias l='less -r'
 	alias g='grep -rin --color=always'
 	alias c='clear'
 
