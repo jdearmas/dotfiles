@@ -1,7 +1,7 @@
 "" Vanilla Vim
 	
  " Map leader to ' '
-  let mapleader = ' '
+  let mapleader=' '
 
  " Display line numbers
   set nu
