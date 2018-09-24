@@ -25,7 +25,7 @@ export TERM=xterm
 	alias gtw='cd ~/Documents/Git/usf_rc_tfawcett/waltonlab/code/fra'
 	alias u='cd ..'
 	alias v='vim'
-	alias s='ls -al'
+	alias s='ls -alFG'
 	alias sl='s | less'
 	alias l='less -r'
 	alias g='grep -rin --color=always'
