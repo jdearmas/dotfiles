@@ -61,6 +61,12 @@
 
 	" Execute/run current buffer bash file
 	noremap <Leader>e :!%:p:<CR>
+
+	" Go to help topic 
+	noremap <Leader>L <C-]>
+
+	" Go to to previous help topic 
+	noremap <Leader>H <C-T>
   
   " Highlight (in red) text that go pass 60 character-columns
   highlight OverLength ctermbg=red ctermfg=white guibg=#592929
