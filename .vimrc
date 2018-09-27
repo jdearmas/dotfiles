@@ -55,6 +55,9 @@
  
  " To easily save the current file, while keeping it open
 	noremap <Leader><space> :update<CR>
+ 
+ " Open bash in vim 
+	noremap <Leader>b :!bash<CR>
   
   " Highlight (in red) text that go pass 60 character-columns
   highlight OverLength ctermbg=red ctermfg=white guibg=#592929

@@ -23,6 +23,7 @@ export TERM=xterm
 
 # User specific aliases and functions
 	alias gtw='cd ~/Documents/Git/usf_rc_tfawcett/waltonlab/code/fra'
+	alias e='exit'
 	alias u='cd ..'
 	alias v='vim'
 	alias s='ls -alFG'
