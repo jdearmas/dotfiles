@@ -97,4 +97,9 @@
 
 	" Go to to previous help topic 
 	noremap <Leader>H <C-T>
+
+	" Go to to previous buffer 
+	noremap <Leader>h :bp<CR>
   
+	" Go to to next buffer  
+	noremap <Leader>l :bn<CR>
