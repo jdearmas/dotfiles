@@ -53,20 +53,6 @@
  " Clear search highlight 
   nnoremap ,<space> :nohlsearch<CR>
  
- " To easily save the current file, while keeping it open
-	noremap <Leader><space> :update<CR>
- 
- " Open bash in vim 
-	noremap <Leader>b :!bash<CR>
-
-	" Execute/run current buffer bash file
-	noremap <Leader>e :!%:p:<CR>
-
-	" Go to help topic 
-	noremap <Leader>L <C-]>
-
-	" Go to to previous help topic 
-	noremap <Leader>H <C-T>
   
   " Highlight (in red) text that go pass 60 character-columns
   highlight OverLength ctermbg=red ctermfg=white guibg=#592929
@@ -92,4 +78,23 @@
   " fix backspace
   set backspace=indent,eol,start
 
+
+"Leader remaps
+ " To easily save the current file, while keeping it open
+	noremap <Leader><space> :update<CR>
+ 
+ " Open bash in vim 
+	noremap <Leader>b :!bash<CR>
+
+	" Execute/run current buffer bash file
+	noremap <Leader>e :!%:p:<CR>
+	
+	" Go to to previous help topic 
+	inoremap <Leader>nn <C-n>
+
+	" Go to help topic 
+	noremap <Leader>L <C-]>
+
+	" Go to to previous help topic 
+	noremap <Leader>H <C-T>
   
