@@ -58,6 +58,9 @@
  
  " Open bash in vim 
 	noremap <Leader>b :!bash<CR>
+
+	" Execute/run current buffer bash file
+	noremap <Leader>e :!%:p:<CR>
   
   " Highlight (in red) text that go pass 60 character-columns
   highlight OverLength ctermbg=red ctermfg=white guibg=#592929
