@@ -78,6 +78,14 @@
   " fix backspace
   set backspace=indent,eol,start
 
+	" autoclose surronding brackets
+	inoremap " ""<left>
+	inoremap ' ''<left>
+	inoremap ( ()<left>
+	inoremap [ []<left>
+	inoremap { {}<left>
+	inoremap {<CR> {<CR>}<ESC>O
+	inoremap {;<CR> {<CR>};<ESC>O
 
 "Leader remaps
  " To easily save the current file, while keeping it open
