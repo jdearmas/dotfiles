@@ -44,6 +44,9 @@
  " Exit out of 'Insert' mode by hitting 'hh' twice
   inoremap hh <Esc>
 
+ " Exit out of 'Visual' mode by hitting 'hh' twice
+  vnoremap hh <Esc>
+  
  " Disable <Esc> in normal mode
   inoremap <Esc> <nop>
 
