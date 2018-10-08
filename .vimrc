@@ -9,8 +9,8 @@
  " Fuzzy find files
  set path+=**
 
- " show tab as having 2 spaces of width
-  set tabstop=2
+ " show tab as having 4 spaces of width
+  set tabstop=4
 
  " Automatic word wrapping
   set textwidth=80
