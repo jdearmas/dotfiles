@@ -12,6 +12,9 @@
  " show tab as having 4 spaces of width
   set tabstop=4
 
+	" replace tabs with spaces
+	set expandtab
+
  " Automatic word wrapping
   set textwidth=80
 
