@@ -79,6 +79,8 @@ export TERM=xterm
 												cd ..
 																done
 		}
+		# If i change directories, list the content of that directory 
+		cd() { builtin cd "$@" && ls; }
 
 # The various escape codes that we can use to color our prompt.
         RED="\[\033[0;31m\]"
