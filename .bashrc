@@ -6,6 +6,9 @@
 # Add Vim-mode in Bash
 set -o vi
 
+# Allows you to cd into directory merely by typing the directory name
+shopt -s autocd
+
 # .bashrc
 # Source global definitions
 	#if [ -f /etc/bashrc ]; then
