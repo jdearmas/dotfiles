@@ -6,6 +6,9 @@
 # Add Vim-mode in Bash
 set -o vi
 
+# Allows you to cd into directory merely by typing the directory name
+shopt -s autocd
+
 # .bashrc
 # Source global definitions
 	#if [ -f /etc/bashrc ]; then
@@ -79,6 +82,8 @@ export TERM=xterm
 												cd ..
 																done
 		}
+		# If i change directories, list the content of that directory 
+		cd() { builtin cd "$@" && ls; }
 
 # The various escape codes that we can use to color our prompt.
         RED="\[\033[0;31m\]"
