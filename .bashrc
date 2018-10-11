@@ -21,6 +21,9 @@ export TERM=xterm
 # always grep with color 
 #export GREP_OPTIONS="--color=always"
 
+# switch directories without typing 'cd'
+	
+
 # User specific aliases and functions
 	alias gtw='cd ~/Documents/Git/usf_rc_tfawcett/waltonlab/code/fra'
 	alias e='exit'

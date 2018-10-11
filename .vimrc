@@ -96,6 +96,10 @@
 	inoremap {<CR> {<CR>}<ESC>O
 	inoremap {;<CR> {<CR>};<ESC>O
 
+"RMarkdown"
+ " compile
+    autocmd Filetype rmd map <F5> :!echo<space>"require(rmarkdown);<space>render('<c-r>%')"<space>\|<space>R<space>--vanilla<enter>
+
 "Leader remaps
  " To easily save the current file, while keeping it open
 	noremap <Leader><space> :update<CR>
