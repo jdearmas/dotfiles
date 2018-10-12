@@ -37,6 +37,7 @@ export TERM=xterm
 	alias l='less -r'
 	alias g='grep -rin --color=always'
 	alias c='clear'
+	alias lsh="cat ~/.shortcuts"
 
 	# ssh
 		alias sshjc='ssh jdearmas@circe.rc.usf.edu -Y'
@@ -200,4 +201,6 @@ function man {
     return $ok
 }
 
+	# Source computer-dependent shortcuts & alias
+			source ~/.shortcuts
 
