@@ -197,4 +197,6 @@ function man {
     return $ok
 }
 
+	# Source computer-dependent shortcuts & alias
+			source ~/.shortcuts
 
