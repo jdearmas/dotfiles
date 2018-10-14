@@ -96,6 +96,10 @@
 	inoremap {<CR> {<CR>}<ESC>O
 	inoremap {;<CR> {<CR>};<ESC>O
 
+"Calcurse"
+ " Make calcurse notes markdown compatible:
+	autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markdown
+
 "RMarkdown"
  " compile
     autocmd Filetype rmd map <F5> :!echo<space>"require(rmarkdown);<space>render('<c-r>%')"<space>\|<space>R<space>--vanilla<enter>
