@@ -47,6 +47,7 @@ export TERM=xterm
 		alias scj='scancel -u jdearmas'
 	
 	# sys admin alias
+		alias sdn='shutdown now'
 		alias ds='du -sh ./'
 		alias dsa='du -h --max-depth=1'
 		alias sqj='squeue -o"%.7i %.9P %.8j %.8u %.2t %.10M %.6D %C" | grep -i jdearmas'
