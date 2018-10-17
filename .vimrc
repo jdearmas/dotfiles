@@ -87,6 +87,10 @@
   " fix backspace
   set backspace=indent,eol,start
 
+	" Align block of text and keep them selected
+	vmap < <gv
+	vmap > >gv
+
 	" autoclose surronding brackets
 	inoremap " ""<left>
 	inoremap ' ''<left>
