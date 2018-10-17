@@ -92,8 +92,8 @@
 	vmap > >gv
 
 	" Comment visually selected lines
-	vnoremap <Leader>c :norm i#
-	vnoremap <Leader>uc :norm x
+	vnoremap <Leader>c :norm i#<CR>
+	vnoremap <Leader>uc :norm x<CR>
 
 	" autoclose surronding brackets
 	inoremap " ""<left>
