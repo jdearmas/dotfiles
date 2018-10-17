@@ -91,6 +91,10 @@
 	vmap < <gv
 	vmap > >gv
 
+	" Comment visually selected lines
+	vnoremap <Leader>c :norm i#
+	vnoremap <Leader>uc :norm x
+
 	" autoclose surronding brackets
 	inoremap " ""<left>
 	inoremap ' ''<left>
@@ -107,6 +111,7 @@
 "RMarkdown"
  " compile
     autocmd Filetype rmd map <F5> :!echo<space>"require(rmarkdown);<space>render('<c-r>%')"<space>\|<space>R<space>--vanilla<enter>
+    "autocmd Filetype rmd map <Leader><space> :update<CR> | :execute "!nohup echo<space>"require(rmarkdown);<space>render('<c-r>%')"<space>\|<space>R<space>--vanilla<enter> &"<enter><CR>
 
 "Leader remaps
  " To easily save the current file, while keeping it open
