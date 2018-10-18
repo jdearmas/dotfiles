@@ -38,6 +38,7 @@ export TERM=xterm
 	alias g='grep -rin --color=always'
 	alias c='clear'
 	alias lsh="cat ~/.shortcuts"
+	alias o="$EDITOR ~/docs/personal/opt/optimizations.md"
 
 	# ssh
 		alias sshjc='ssh jdearmas@circe.rc.usf.edu -Y'
