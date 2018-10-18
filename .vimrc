@@ -12,6 +12,9 @@
  " show tab as having 4 spaces of width
   set tabstop=4
 
+ " change width of visual select shift 
+  set shiftwidth=4
+
 	" replace tabs with spaces
 	set expandtab
 
@@ -32,11 +35,14 @@
 	 nnoremap <F4> :put=entryinfo
 
  " Press F5 in normal/insert mode to paste timestamp
-  nnoremap <F5> "=strftime("#### %H:%M:%S")<CR>P
-  inoremap <F5> "=strftime("#### %H:%M:%S")<CR>P
+  nnoremap <F7> "=strftime("#### %H:%M:%S")<CR>P
+  inoremap <F7> "=strftime("#### %H:%M:%S")<CR>P
 
  " Display relative numbers
  set relativenumber
+
+ " Automatically write a fil e when leaving a modified buffer
+  set aw
 
  " Syntax
   syntax enable
@@ -114,26 +120,45 @@
     "autocmd Filetype rmd map <Leader><space> :update<CR> | :execute "!nohup echo<space>"require(rmarkdown);<space>render('<c-r>%')"<space>\|<space>R<space>--vanilla<enter> &"<enter><CR>
 
 "Leader remaps
- " To easily save the current file, while keeping it open
-	noremap <Leader><space> :update<CR>
+				" To easily save the current file, while keeping it open
+				noremap <Leader><space> :update<CR>
 
- " Open bash in vim
-	noremap <Leader>b :!bash<CR>
+				" Open bash in vim
+				noremap <Leader>b :!bash<CR>
 
-	" Execute/run current buffer bash file
-	noremap <Leader>e :!%:p:<CR>
+				" Execute/run current buffer bash file
+				noremap <Leader>e :!%:p:<CR>
 
-	" Go to to previous help topic
-	inoremap <Leader>nn <C-n>
+				" Go to to previous help topic
+				inoremap <Leader>nn <C-n>
 
-	" Go to help topic
-	noremap <Leader>L <C-]>
+				" Go to help topic
+				noremap <Leader>L <C-]>
 
-	" Go to to previous help topic
-	noremap <Leader>H <C-T>
+				" Go to to previous help topic
+				noremap <Leader>H <C-T>
 
-	" Go to to previous buffer
-	noremap <Leader>h :bp<CR>
+				" Go to to previous buffer
+				noremap <Leader>h :bp<CR>
 
-	" Go to to next buffer
-	noremap <Leader>l :bn<CR>
+				" Go to to next buffer
+				noremap <Leader>l :bn<CR>
+
+"Snippets
+
+		"MARKDOWN
+				autocmd Filetype markdown,rmd map <leader>w yiWi[<esc>Ea](<esc>pa)
+				autocmd Filetype markdown,rmd inoremap ,n ---<Enter><Enter>
+				autocmd Filetype markdown,rmd inoremap ,b ****<++><Esc>F*hi
+				autocmd Filetype markdown,rmd inoremap ,s ~~~~<++><Esc>F~hi
+				autocmd Filetype markdown,rmd inoremap ,e **<++><Esc>F*i
+				autocmd Filetype markdown,rmd inoremap ,h ***<Space><++><Esc>F=hi
+				autocmd Filetype markdown,rmd inoremap ,i ![](<++>)<++><Esc>F[a
+				autocmd Filetype markdown,rmd inoremap ,a [](<++>)<++><Esc>F[a
+				autocmd Filetype markdown,rmd inoremap ,1 #<Space><Enter><++><Esc>kA
+				autocmd Filetype markdown,rmd inoremap ,2 ##<Space><Enter><++><Esc>kA
+				autocmd Filetype markdown,rmd inoremap ,3 ###<Space><Enter><++><Esc>kA
+				autocmd Filetype markdown,rmd inoremap ,l --------<Enter>
+				autocmd Filetype rmd inoremap ,r ```{r}<CR>```<CR><CR><esc>2kO
+				autocmd Filetype rmd inoremap ,p ```{python}<CR>```<CR><CR><esc>2kO
+				autocmd Filetype rmd inoremap ,c ```<cr>```<cr><cr><esc>2kO
