@@ -28,14 +28,13 @@ export TERM=xterm
 	
 
 # User specific aliases and functions
-	alias gtw='cd ~/Documents/Git/usf_rc_tfawcett/waltonlab/code/fra'
 	alias e='exit'
 	alias u='cd ..'
 	alias v='vim'
 	alias s='ls -alFGhN --color=auto --group-directories-first'
+	alias l='less -r'
 	alias ls='ls -hN --color=auto --group-directories-first'
 	alias sl='s | less'
-	alias l='less -r'
 	alias g='grep -rin --color=always'
 	alias c='clear'
 	alias lsh="cat ~/.shortcuts"
@@ -69,9 +68,9 @@ export TERM=xterm
 		alias cdg='cd ~/Documents/git'
 		alias cdgd='cd ~/Documents/git/dotfiles'
 
-	# Computer-dependent
-			alias cdnb='cd ~/Documents/git/usf_rc_tfawcett/nsf_crn/bash/serial'
-			alias cdrep='cd /rcfs/workprojects/waltonlab/ephys'
+	# Youtube
+		alias yt="youtube-dl --add-metadata -ic" # Download video link
+		alias yta="youtube-dl --add-metadata -xic" # Download only audio
 
 
 	# directory movement mk. 2
@@ -97,9 +96,6 @@ export TERM=xterm
   LIGHT_RED="\[\033[1;31m\]"
 LIGHT_BOLD_CYAN="\[\033[38;5;51m\]"
 LIGHT_GREEN="\[\033[38;5;208m\]"
-#LIGHT_BLUE="\[\033[0;34m\]"
-#LIGHT_CYAN="\[\033[0;36m\]"
-#LIGHT_GREEN="\[\033[1;32m\]"
       WHITE="\[\033[1;37m\]"
  LIGHT_GRAY="\[\033[0;37m\]"
  COLOR_NONE="\[\e[0m\]"

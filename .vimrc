@@ -47,6 +47,10 @@
  " Syntax
   syntax enable
 
+ " Copy & Paste into vim in normal mode
+  noremap<leader>p "+p
+  noremap<leader>y "+y
+
  " Display Cursorline
   set cursorline
 
