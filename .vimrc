@@ -133,8 +133,14 @@
 				" Execute/run current buffer bash file
 				noremap <Leader>e :!%:p:<CR>
 
-				" Go to to previous help topic
-				inoremap <Leader>nn <C-n>
+				" Execute/run current buffer bash file
+				noremap <Leader>f :find 
+
+				" Go to to previous buffer
+				noremap <Leader>h :bp<CR>
+
+				" Go to to next buffer
+				noremap <Leader>l :bn<CR>
 
 				" Go to help topic
 				noremap <Leader>L <C-]>
@@ -142,11 +148,9 @@
 				" Go to to previous help topic
 				noremap <Leader>H <C-T>
 
-				" Go to to previous buffer
-				noremap <Leader>h :bp<CR>
+				" Autocomplete word in insert mode
+				inoremap <Leader>nn <C-n>
 
-				" Go to to next buffer
-				noremap <Leader>l :bn<CR>
 
 "Snippets
 
