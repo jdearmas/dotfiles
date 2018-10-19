@@ -101,9 +101,6 @@
 	vmap < <gv
 	vmap > >gv
 
-	" Comment visually selected lines
-	vnoremap <Leader>c :norm i#<CR>
-	vnoremap <Leader>uc :norm x<CR>
 
 	" autoclose surronding brackets
 	inoremap " ""<left>
@@ -141,6 +138,16 @@
 
 				" Go to to next buffer
 				noremap <Leader>l :bn<CR>
+
+				" Go to tag
+				noremap <Leader>t <C-]>
+
+				" Return to previous tag
+				noremap <Leader>o <C-o>
+				 
+				" Comment visually selected lines
+				vnoremap <Leader>c :norm i#<CR>
+				vnoremap <Leader>uc :norm x<CR>
 
 				" Go to help topic
 				noremap <Leader>L <C-]>
