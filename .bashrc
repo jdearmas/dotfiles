@@ -56,7 +56,7 @@ export TERM=xterm
 		}
 
 	# git alias
-		alias gl='git log --graph --oneline --decorate --all'
+		alias gl='git log --graph --oneline --decorate --all --color=auto'
 		alias gs='git status'
 		alias gaa='git add .'
 		alias gc='git commit'
