@@ -8,6 +8,7 @@
 
  " Fuzzy find files
  set path+=**
+ nnoremap <Leader>ff :vs **/*
 
  " show tab as having 4 spaces of width
   set tabstop=4
@@ -47,9 +48,6 @@
  " Syntax
   syntax enable
 
- " Copy & Paste into vim in normal mode
-  noremap<leader>p "+p
-  noremap<leader>y "+y
 
  " Display Cursorline
   set cursorline
@@ -138,13 +136,19 @@
 
 				" Go to to next buffer
 				noremap <Leader>l :bn<CR>
+				
+				" Return to previous tag
+				noremap <Leader>o <C-o>
+
+				" Paste into vim in normal mode
+				noremap<leader>p "+p
 
 				" Go to tag
 				noremap <Leader>t <C-]>
 
-				" Return to previous tag
-				noremap <Leader>o <C-o>
-				 
+				" Copy into vim in normal mode
+				noremap<leader>y "+y
+
 				" Comment visually selected lines
 				vnoremap <Leader>c :norm i#<CR>
 				vnoremap <Leader>uc :norm x<CR>
@@ -154,6 +158,9 @@
 
 				" Go to to previous help topic
 				noremap <Leader>H <C-T>
+
+				" Fuzzy find files
+				nnoremap <Leader>ff :e **/*
 
 				" Autocomplete word in insert mode
 				inoremap <Leader>nn <C-n>
