@@ -37,8 +37,7 @@ export TERM=xterm
 	alias sl='s | less'
 	alias g='grep -rin --color=always'
 	alias c='clear'
-	alias lsh="cat ~/.shortcuts"
-	alias o="$EDITOR ~/docs/personal/opt/optimizations.md"
+	alias lsh="cat ~/.shortcuts.sh"
 
 	# ssh
 		alias sshjc='ssh jdearmas@circe.rc.usf.edu -Y'
@@ -64,8 +63,6 @@ export TERM=xterm
 		alias gpsom='git push origin master'
 	
 	# directory movement
-		alias cdd='cd ~/Documents/'
-		alias cddw='cd ~/Downloads/'
 		alias cdg='cd ~/Documents/git'
 		alias cdgd='cd ~/Documents/git/dotfiles'
 
@@ -201,5 +198,5 @@ function man {
 }
 
 	# Source computer-dependent shortcuts & alias
-			source ~/.shortcuts
+			source ~/.shortcuts.sh 
 
