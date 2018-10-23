@@ -148,7 +148,6 @@
 
 				" Open vimrc
 				noremap <Leader>v :e $MYVIMRC
-				inoremap <Leader>v :e $MYVIMRC
 
 				" Copy into vim in normal mode
 				noremap<leader>y "+y
