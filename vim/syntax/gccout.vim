@@ -23,6 +23,7 @@ highlight link gccoutputIncludes Include
 
 syntax match compileFlags "\v-o"
 syntax match compileFlags "\v-c"
+syntax match compileFlags "warning"
 highlight link compileFlags Keyword
 
 syntax match gccoutputOptionsFlags "\v-[^Ioc]*\s"
