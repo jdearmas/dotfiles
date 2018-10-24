@@ -7,8 +7,8 @@
   set nu
 
  " Fuzzy find files
- set path+=**
- nnoremap <Leader>ff :vs **/*
+  set path+=**
+  nnoremap <Leader>ff :vs **/*
 
  " show tab as having 4 spaces of width
   set tabstop=4
@@ -42,7 +42,7 @@
  " Display relative numbers
  set relativenumber
 
- " Automatically write a fil e when leaving a modified buffer
+ " Automatically write a file when leaving a modified buffer
   set aw
 
  " Syntax
@@ -51,6 +51,9 @@
 
  " Display Cursorline
   set cursorline
+
+ " Change Color of Current Line Number
+  hi CursorLineNr ctermfg=4
 
  " Exit out of 'Insert' mode by hitting 'hh' twice
   inoremap hh <Esc>
