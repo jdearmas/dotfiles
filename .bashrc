@@ -28,15 +28,16 @@ export TERM=xterm
 	
 
 # User specific aliases and functions
+	alias c='clear'
 	alias e='exit'
+	alias g='grep -rin --color=always'
+	alias h='history'
+	alias l='less -r'
+	alias s='ls -alFGhN --color=auto --group-directories-first'
 	alias u='cd ..'
 	alias v='vim'
-	alias s='ls -alFGhN --color=auto --group-directories-first'
-	alias l='less -r'
 	alias ls='ls -hN --color=auto --group-directories-first'
 	alias sl='s | less'
-	alias g='grep -rin --color=always'
-	alias c='clear'
 	alias lsh="cat ~/.shortcuts.sh"
 
 	# ssh
