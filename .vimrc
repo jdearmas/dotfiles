@@ -139,6 +139,9 @@
 
 				" Go to to next buffer
 				noremap <Leader>l :bn<CR>
+
+				" set filetype to gccout
+				noremap <Leader>m :set filetype=gccout<CR>
 				
 				" Return to previous tag
 				noremap <Leader>o <C-o>
@@ -150,7 +153,7 @@
 				noremap <Leader>t <C-]>
 
 				" Open vimrc
-				noremap <Leader>v :e $MYVIMRC
+				noremap <Leader>v :e $MYVIMRC<CR>
 
 				" Copy into vim in normal mode
 				noremap<leader>y "+y
