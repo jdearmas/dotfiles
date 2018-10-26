@@ -9,8 +9,6 @@ if exists("b:current_syntax")
 
 endif
 
-echom "Hello!"
-
 syntax keyword gccoutputKeyword error Error 
 highlight link gccoutputKeyword Error
 
