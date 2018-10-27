@@ -149,6 +149,9 @@
 				" Paste into vim in normal mode
 				noremap<leader>p "+p
 
+				" Autopopulate substitution template into ex command line mode
+				noremap<leader>r q:i%s///g<Left><Left><Left>
+
 				" Go to tag
 				noremap <Leader>t <C-]>
 
