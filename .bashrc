@@ -31,8 +31,10 @@ export TERM=xterm
 	alias a='clear && ls -alFGhN --color=auto --group-directories-first'
 	alias c='clear'
 	alias e='exit'
+	#	alias f=//TAKEN
 	alias g='grep -rin --color=always'
 	alias h='history'
+	#	alias i=//TAKEN
 	alias l='less -r'
 	alias s='ls -alFGhN --color=auto --group-directories-first'
 	alias u='cd .. && clear && ls -alFGhN --color=auto --group-directories-first'
@@ -76,16 +78,18 @@ export TERM=xterm
 	# directory movement mk. 2
 		alias gtd='function _gtd(){ dp="$1"; fdp=$(find . -iname $dp -type d); cd $fdp; };_gtd'
 		alias f='find . -iname'
+
 		# go up 'x' number of directories
-		uu() {
-				start=1
-								end=$1
-								for ((i=start; i<=end; i++)); do
-												cd ..
-																done
-		}
+						uu() {
+										start=1
+										end=$1
+										for ((i=start; i<=end; i++)); do
+											cd ..
+										done
+						}
 		# If i change directories, list the content of that directory 
-		cd() { builtin cd "$@" && ls; }
+		cd() { builtin cd "$@" && clear && ls -alFGhN --color=auto --group-directories-first; }
+		
 
 # The various escape codes that we can use to color our prompt.
         RED="\[\033[0;31m\]"
