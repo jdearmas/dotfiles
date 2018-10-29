@@ -125,6 +125,9 @@
 				" To easily save the current file, while keeping it open
 				noremap <Leader><space> :update<CR>
 
+        " highlight all lines
+				noremap <Leader>a  ggVG<CR>
+
 				" Open bash in vim
 				noremap <Leader>b :!bash<CR>
 
@@ -151,6 +154,9 @@
 
 				" Autopopulate substitution template into ex command line mode
 				noremap<leader>r q:i%s///g<Left><Left><Left>
+
+				" Separate every sentence with a empty line and reformat
+				noremap <Leader>s q:i%s/\. /\.\r\r/g<CR> | ggVGgq<CR>
 
 				" Go to tag
 				noremap <Leader>t <C-]>

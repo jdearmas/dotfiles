@@ -28,13 +28,14 @@ export TERM=xterm
 	
 
 # User specific aliases and functions
+	alias a='clear && ls -alFGhN --color=auto --group-directories-first'
 	alias c='clear'
 	alias e='exit'
 	alias g='grep -rin --color=always'
 	alias h='history'
 	alias l='less -r'
 	alias s='ls -alFGhN --color=auto --group-directories-first'
-	alias u='cd ..'
+	alias u='cd .. && clear && ls -alFGhN --color=auto --group-directories-first'
 	alias v='vim'
 	alias ls='ls -hN --color=auto --group-directories-first'
 	alias sl='s | less'
