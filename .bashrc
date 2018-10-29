@@ -36,6 +36,7 @@ export TERM=xterm
 	alias h='history'
 	#	alias i=//TAKEN
 	alias l='less -r'
+	alias r='source ~/.bashrc'
 	alias s='ls -alFGhN --color=auto --group-directories-first'
 	alias u='cd .. && clear && ls -alFGhN --color=auto --group-directories-first'
 	alias v='vim'
@@ -88,7 +89,8 @@ export TERM=xterm
 										done
 						}
 		# If i change directories, list the content of that directory 
-		cd() { builtin cd "$@" && clear && ls -alFGhN --color=auto --group-directories-first; }
+		#cd() { builtin cd "$@" && clear && ls -alFGhN --color=auto --group-directories-first; }
+		cd() { builtin cd "$@"; clear; ls -alFGhN --color=auto --group-directories-first; }
 		
 
 # The various escape codes that we can use to color our prompt.
