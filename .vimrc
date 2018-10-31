@@ -135,7 +135,7 @@
 				noremap <Leader>e :!%:p:<CR>
 
 				" Fuzzy Find Plugin 
-				noremap <Leader>f :FZF
+				noremap <Leader>f :FZF<CR>
 
 				" Go to to previous buffer
 				noremap <Leader>h :bp<CR>
