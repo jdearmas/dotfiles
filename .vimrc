@@ -134,8 +134,8 @@
 				" Execute/run current buffer bash file
 				noremap <Leader>e :!%:p:<CR>
 
-				" Execute/run current buffer bash file
-				noremap <Leader>f :find 
+				" Fuzzy Find Plugin 
+				noremap <Leader>f :FZF
 
 				" Go to to previous buffer
 				noremap <Leader>h :bp<CR>
