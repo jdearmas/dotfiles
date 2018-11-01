@@ -114,7 +114,7 @@ LIGHT_GREEN="\[\033[38;5;208m\]"
 
  function set_git_branch {
    # Set the final branch string
-   BRANCH=`parse_git_branch`
+   BRANCH=`parse_git_dirty``parse_git_branch`
    local TIME=`fmt_time` # format time for prompt string
  }
 
@@ -122,8 +122,7 @@ LIGHT_GREEN="\[\033[38;5;208m\]"
  function parse_git_branch() {
    git branch --no-color 2> /dev/null           \
 					 | sed -e '/^[^*]/d'                  \
-					 -e 's/* /*/'                         \
-					 -e "s/* \(.*\)/\1$(parse_git_dirty)/"
+					 -e 's/* //'
  }
 
 
