@@ -36,7 +36,7 @@ export TERM=xterm
 	alias h='history'
 	#	alias i=//TAKEN
 	alias l='less -r'
-	alias r='source ~/.bashrc'
+	alias rr='source ~/.bashrc'
 	alias s='ls -alFGhN --color=auto --group-directories-first'
 	alias u='cd .. && clear && ls -alFGhN --color=auto --group-directories-first'
 	alias v='vim'
@@ -88,7 +88,7 @@ export TERM=xterm
 											cd ..
 										done
 						}
-		# If i change directories, list the content of that directory 
+		# If i change directories, clear the terminal and list the content of that directory 
 		#cd() { builtin cd "$@" && clear && ls -alFGhN --color=auto --group-directories-first; }
 		cd() { builtin cd "$@"; clear; ls -alFGhN --color=auto --group-directories-first; }
 		
@@ -128,11 +128,11 @@ LIGHT_GREEN="\[\033[38;5;208m\]"
 
 
  function parse_git_dirty() {
-   [[ $(git status 2> /dev/null | tail -n1) != *"working directory clean"* ]] && echo "*"
+   [[ $(git status 2> /dev/null | tail -n1) != *"nothing to commit, working tree clean "* ]] && echo "*"
  }
 
-
- fmt_time () { #format time just the way I likes it
+# Format time just the way I likes it
+ fmt_time () { 
      if [ `date +%p` = "PM" ]; then
          meridiem="pm"
      else
@@ -154,57 +154,59 @@ LIGHT_GREEN="\[\033[38;5;208m\]"
 
 
  # Determine active Python virtualenv details.
- function set_virtualenv () {
-   if test -z "$VIRTUAL_ENV" ; then
+ 	function set_virtualenv () {
+ 		if test -z "$VIRTUAL_ENV" ; then
        PYTHON_VIRTUALENV=""
-   else
+		else
        PYTHON_VIRTUALENV="${YELLOW}(`basename \"$VIRTUAL_ENV\"`)${COLOR_NONE}"
-   fi
- }
+		fi
+ 	}
 
 
  # Set the full bash prompt.
- function set_bash_prompt () {
-   # Set the PROMPT_SYMBOL variable. 
-	 # We do this first so we don't lose the
-   # return value of the last command.
-   set_prompt_symbol $?
+ 	function set_bash_prompt () {
 
-   # Set the PYTHON_VIRTUALENV variable.
-   set_virtualenv
+		# Set the PROMPT_SYMBOL variable. 
+		# We do this first so we don't lose the
+		# return value of the last command.
+		set_prompt_symbol $?
 
-   # Set the BRANCH variable.
-   if is_git_repository ; then
-     set_git_branch
-		 BRANCH={$BRANCH}
-   else
-     BRANCH=''
-   fi
+		# Set the PYTHON_VIRTUALENV variable.
+		set_virtualenv
 
-	GIT="${LIGHT_GREEN}${BRANCH}"
-	 PY="${COLOR_NONE}${PYTHON_VIRTUALENV}"
-	 PS=" ${BLUE}${PROMPT_SYMBOL}${COLOR_NONE} "
-	 INDICTORS="\n${GIT}${PY}${PS}"
-   # Set the bash prompt variable.
-	 PS1="\n${BLUE}\u${RED}@${LIGHT_BOLD_CYAN}\h:${RED}\w${INDICTORS}"
+		# Set the BRANCH variable.
+		if is_git_repository ; then
+		 	set_git_branch
+		 	BRANCH={$BRANCH}
+		else
+			BRANCH=''
+		fi
 
- }
+		GIT="${LIGHT_GREEN}${BRANCH}"
+		PY="${COLOR_NONE}${PYTHON_VIRTUALENV}"
+		PS=" ${BLUE}${PROMPT_SYMBOL}${COLOR_NONE} "
+		INDICTORS="\n${GIT}${PY}${PS}"
+		# Set the bash prompt variable.
+		PS1="\n${BLUE}\u${RED}@${LIGHT_BOLD_CYAN}\h:${RED}\w${INDICTORS}"
+
+ 	}
 
 
- # Tell bash to execute this function just before displaying its prompt.
- PROMPT_COMMAND=set_bash_prompt
+# Tell bash to execute this function just before displaying its prompt.
+	PROMPT_COMMAND=set_bash_prompt
 
 # Man pages on Git bash
-function man {
-    local section=all
-    if [[ "$1" =~ ^[0-9]+$ ]]; then section="$1"; shift; fi
-    local doc="$(curl -v --silent --data-urlencode topic="$@" --data-urlencode section="$section" http://man.he.net/ 2>&1)"
-    local ok=$?
-    local pre="$(printf '%s' "$doc" | sed -ne "/<PRE>/,/<\/PRE>/ { /<PRE>/ { n; b; }; p }")"
-    [[ $ok -eq 0 && -n "$pre" ]] && printf '%s' "$pre" | less || printf 'Got nothing.\n' >&2
-    return $ok
-}
+		function man {
+			local section=all
+			if [[ "$1" =~ ^[0-9]+$ ]]; then section="$1"; shift; fi
+			local doc="$(curl -v --silent --data-urlencode topic="$@" --data-urlencode section="$section" http://man.he.net/ 2>&1)"
+			local ok=$?
+			local pre="$(printf '%s' "$doc" | sed -ne "/<PRE>/,/<\/PRE>/ { /<PRE>/ { n; b; }; p }")"
+			[[ $ok -eq 0 && -n "$pre" ]] && printf '%s' "$pre" | less || printf 'Got nothing.\n' >&2
+			return $ok
+		}
 
-	# Source computer-dependent shortcuts & alias
-			source ~/.shortcuts.sh 
+# Source computer-dependent shortcuts & alias(i?)
+	# ( whatever the plural of alias is... )
+	source ~/.shortcuts
 
