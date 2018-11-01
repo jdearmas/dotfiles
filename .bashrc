@@ -1,7 +1,30 @@
 # update configuration
-~/Documents/git/dotfiles/setup.sh 1
+~/Documents/git/dotfiles/setup.sh 0
 # 1 means pull
 # 0 mean do nothing
+
+# Git Repo Dotfiles Pull Timer
+	# This section of code creates a timer. When 'WAIT_TIME' has elapsed, the next
+	# time .bashrc is sourced, it will pull from the origin repo.
+
+# For example, if WAIT_TIME is 3. The timer is set for 3 seconds. If you were to
+	# source the file again, within the 3 seconds, it will source as normal. But
+	# if you were to source .bashrc after 3 seconds, .bashrc will pull from the
+	# server git repo that houses your dotfiles
+
+		WAIT_TIME=100
+		if [ -z "$UPDATE_TIME" ];
+		then
+			let "UPDATE_TIME=SECONDS+WAIT_TIME"
+			echo "created update_time"
+		fi
+
+		if [ "$UPDATE_TIME" -le "$SECONDS" ];
+		then
+			echo "hello"
+			~/Documents/git/dotfiles/setup.sh 1 2> /dev/null
+			UPDATE_TIME=''
+		fi
 
 # Add Vim-mode in Bash
 set -o vi
