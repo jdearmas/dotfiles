@@ -208,5 +208,6 @@ LIGHT_GREEN="\[\033[38;5;208m\]"
 
 # Source computer-dependent shortcuts & alias(i?)
 	# ( whatever the plural of alias is... )
+	alias srsh="source ~/.shortcuts"
 	source ~/.shortcuts
 
