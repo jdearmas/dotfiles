@@ -127,8 +127,15 @@ LIGHT_GREEN="\[\033[38;5;208m\]"
  }
 
 
- function parse_git_dirty() {
-   [[ $(git status 2> /dev/null | tail -n1) != *"nothing to commit, working tree clean "* ]] && echo "*"
+ function parse_git_dirty() 
+ {
+    GIT_STATE=$(git status 2> /dev/null | tail -n1)
+    if [ "$GIT_STATE" != "nothing to commit, working tree clean" ]
+    then
+        echo "*"
+    else
+        echo ''
+    fi
  }
 
 # Format time just the way I likes it
