@@ -16,12 +16,11 @@
 		if [ -z "$UPDATE_TIME" ];
 		then
 			let "UPDATE_TIME=SECONDS+WAIT_TIME"
-			echo "created update_time"
+			echo ".bashrc will pull from server dotfiles in: $WAIT_TIME seconds..."
 		fi
 
 		if [ "$UPDATE_TIME" -le "$SECONDS" ];
 		then
-			echo "hello"
 			~/Documents/git/dotfiles/setup.sh 1 2> /dev/null
 			UPDATE_TIME=''
 		fi
