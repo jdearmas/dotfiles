@@ -7,22 +7,31 @@
 	# This section of code creates a timer. When 'WAIT_TIME' has elapsed, the next
 	# time .bashrc is sourced, it will pull from the origin repo.
 
-# For example, if WAIT_TIME is 3. The timer is set for 3 seconds. If you were to
+	# For example, if WAIT_TIME is 3. The timer is set for 3 seconds. If you were to
 	# source the file again, within the 3 seconds, it will source as normal. But
 	# if you were to source .bashrc after 3 seconds, .bashrc will pull from the
 	# server git repo that houses your dotfiles
 
 		WAIT_TIME=100
+		NOW=$(date +%s)
+		TMP_TIMER_LOG="/tmp/gitbashdottimer.log"
+		#touch $TMP_TIMER_LOG; rm $TMP_TIMER_LOG; touch $TMP_TIMER_LOG
+		UPDATE_TIME=$(cat $TMP_TIMER_LOG 2> /dev/null)
 		if [ -z "$UPDATE_TIME" ];
 		then
-			let "UPDATE_TIME=SECONDS+WAIT_TIME"
-			echo ".bashrc will pull from server dotfiles in: $WAIT_TIME seconds..."
+			let "UPDATE_TIME=NOW+WAIT_TIME"
+			echo $UPDATE_TIME > $TMP_TIMER_LOG
+			echo "Pull Countdown Initiated..." 
 		fi
 
-		if [ "$UPDATE_TIME" -le "$SECONDS" ];
+		if [ "$UPDATE_TIME" -le "$NOW" ];
 		then
 			~/Documents/git/dotfiles/setup.sh 1 2> /dev/null
 			UPDATE_TIME=''
+			touch $TMP_TIMER_LOG; rm $TMP_TIMER_LOG; touch $TMP_TIMER_LOG
+		else
+			let "TIME_LEFT=UPDATE_TIME-NOW"
+			echo "A pull of the server dotfiles will occur in: $TIME_LEFT seconds..."
 		fi
 
 # Add Vim-mode in Bash
