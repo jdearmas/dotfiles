@@ -64,29 +64,6 @@
 		start_timer "$WAIT_TIME"
 		assess_time
 
-#		function pull_from_repo
-#		WAIT_TIME=100
-#		NOW=$(date +%s)
-#		TMP_TIMER_LOG="/tmp/gitbashdottimer.log"
-#		#touch $TMP_TIMER_LOG; rm $TMP_TIMER_LOG; touch $TMP_TIMER_LOG
-#		UPDATE_TIME=$(cat $TMP_TIMER_LOG 2> /dev/null)
-#		if [ -z "$UPDATE_TIME" ];
-#		then
-#			let "UPDATE_TIME=NOW+WAIT_TIME"
-#			echo $UPDATE_TIME > $TMP_TIMER_LOG
-#			echo "Pull Countdown Initiated..." 
-#		fi
-#
-#		if [ "$UPDATE_TIME" -le "$NOW" ];
-#		then
-#			#~/Documents/git/dotfiles/setup.sh 1 2> /dev/null
-#			UPDATE_TIME=''
-#			touch $TMP_TIMER_LOG; rm $TMP_TIMER_LOG; touch $TMP_TIMER_LOG
-#			echo "Cleared tmp file"
-#		else
-#			let "TIME_LEFT=UPDATE_TIME-NOW"
-#			echo "A pull of the server dotfiles will occur in: $TIME_LEFT seconds..."
-#		fi
 
 # Add Vim-mode in Bash
 set -o vi
