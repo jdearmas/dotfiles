@@ -26,10 +26,12 @@
 				WAIT_TIME=$1
 				NOW=$(date +%s)
 				UPDATE_TIME=$(cat $TMP_TIMER_LOG 2> /dev/null)
-			 	if [ "$UPDATE_TIME" -le "$NOW" ];
-     		then
-				    clear_timer
-       	fi
+			 	if [ "$NOW" -gt "$UPDATE_TIME" ] 2> /dev/null;
+         		then
+				    assess_time
+                else
+                    declare_time_left
+            	fi
 				if [ -z "$UPDATE_TIME" ];
 				then
 					let "UPDATE_TIME=NOW+WAIT_TIME"
@@ -49,8 +51,8 @@
 				echo "A pull to the server dotfiles will occur in: $TIME_LEFT secs..." ;}
 
 		function pull_from_origin(){
-				~/Documents/git/dotfiles/setup.sh 1 2> /dev/null ;}
-				# echo "fake pull" ;}
+				#~/Documents/git/dotfiles/setup.sh 1 2> /dev/null ;}
+				echo "fake pull" ;}
 
 		function assess_time(){
 			UPDATE_TIME=$(cat $TMP_TIMER_LOG 2> /dev/null)
@@ -58,15 +60,11 @@
 			if [ "$UPDATE_TIME" -le "$NOW" ];
 			then
 				clear_timer
-				start_timer
 				pull_from_origin
-			else
-				declare_time_left
 			fi ;}
 
 		create_timer "$TMP_TIMER_LOG"
 		start_timer "$WAIT_TIME"
-		assess_time
 
 
 # Add Vim-mode in Bash
