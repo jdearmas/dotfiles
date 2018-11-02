@@ -53,9 +53,9 @@
 			NOW=$(date +%s)
 			if [ "$UPDATE_TIME" -le "$NOW" ];
 			then
-				pull_from_origin
 				clear_timer
 				start_timer
+				pull_from_origin
 			else
 				declare_time_left
 			fi ;}
