@@ -1,6 +1,6 @@
 # update configuration
 ~/Documents/git/dotfiles/setup.sh 0
-# 1 means pull
+# 1 means pull every time .bashrc is sourced
 # 0 mean do nothing
 
 # Git Repo Dotfiles Pull Timer
@@ -57,7 +57,7 @@
 		function assess_time(){
 			UPDATE_TIME=$(cat $TMP_TIMER_LOG 2> /dev/null)
 			NOW=$(date +%s)
-			if [ "$UPDATE_TIME" -le "$NOW" ];
+			if [ "$NOW" -gt "$UPDATE_TIME" ];
 			then
 				clear_timer
 				pull_from_origin
@@ -79,17 +79,10 @@ shopt -s autocd
 	#. /etc/bashrc
 	#fi
 
-# Uncomment the following line if you don't like systemctl's auto-paging feature:
-# export SYSTEMD_PAGER=
 
 # Allow Aliases To Work from 'st' ssh to 'xterm'
 export TERM=xterm
 
-# always grep with color 
-#export GREP_OPTIONS="--color=always"
-
-# switch directories without typing 'cd'
-	
 
 # User specific aliases and functions
 	alias a='clear && ls -alFGhN --color=auto --group-directories-first'
