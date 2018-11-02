@@ -26,6 +26,10 @@
 				WAIT_TIME=$1
 				NOW=$(date +%s)
 				UPDATE_TIME=$(cat $TMP_TIMER_LOG 2> /dev/null)
+			 	if [ "$UPDATE_TIME" -le "$NOW" ];
+     		then
+				    clear_timer
+       	fi
 				if [ -z "$UPDATE_TIME" ];
 				then
 					let "UPDATE_TIME=NOW+WAIT_TIME"
