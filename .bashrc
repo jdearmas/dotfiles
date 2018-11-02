@@ -34,6 +34,7 @@
 				fi ;}
 
 		function clear_timer(){
+				TMP_TIMER_LOG="/tmp/gitbashdottimer.log"
 				rm $TMP_TIMER_LOG; touch $TMP_TIMER_LOG
 				UPDATE_TIME='' ;}
 
