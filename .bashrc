@@ -3,6 +3,7 @@
 # 1 means pull every time .bashrc is sourced
 # 0 mean do nothing
 
+
 # Git Repo Dotfiles Pull Timer
 	# This section of code creates a timer. When 'WAIT_TIME' has elapsed, the next
 	# time .bashrc is sourced, it will pull from the origin repo.
@@ -51,8 +52,8 @@
 				echo "A pull to the server dotfiles will occur in: $TIME_LEFT secs..." ;}
 
 		function pull_from_origin(){
-				#~/Documents/git/dotfiles/setup.sh 1 2> /dev/null ;}
-				echo "fake pull" ;}
+				~/Documents/git/dotfiles/setup.sh 1 2> /dev/null ;}
+				#echo "fake pull" ;}
 
 		function assess_time(){
 			UPDATE_TIME=$(cat $TMP_TIMER_LOG 2> /dev/null)
@@ -256,7 +257,7 @@ LIGHT_GREEN="\[\033[38;5;208m\]"
 
 
 # Tell bash to execute this function just before displaying its prompt.
-	PROMPT_COMMAND=set_bash_prompt
+		PROMPT_COMMAND=set_bash_prompt
 
 # Man pages on Git bash
 		function man {
@@ -270,7 +271,16 @@ LIGHT_GREEN="\[\033[38;5;208m\]"
 		}
 
 # Source computer-dependent shortcuts & alias(i?)
-	# ( whatever the plural of alias is... )
-	alias srsh="source ~/.shortcuts"
-	source ~/.shortcuts
+		# ( whatever the plural of alias is... )
+		alias srsh="source ~/.shortcuts"
+		source ~/.shortcuts
 
+# Color Man Pages
+    # Get color support for 'less'
+    export LESS="--RAW-CONTROL-CHARS"
+
+    # Use colors for less, man, etc.
+    [[ -f ~/.LESS_TERMCAP ]] && . ~/.LESS_TERMCAP
+
+# Fuzzy Finder Config File
+		[ -f ~/.fzf.bash ] && source ~/.fzf.bash
