@@ -183,6 +183,11 @@
 				" Autocomplete word in insert mode
 				inoremap <Leader>nn <C-n>
 
+"Ctags
+
+		"Look up towards root
+				set tags=./tags;/
+
 
 "Snippets
 
