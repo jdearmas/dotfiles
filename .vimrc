@@ -6,6 +6,9 @@
  " Display line numbers
   set nu
 
+ " Change Current Directory to Current File
+  set autochdir
+
  " Fuzzy find files
   set path+=**
   nnoremap <Leader>ff :vs **/*

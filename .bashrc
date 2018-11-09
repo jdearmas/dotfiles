@@ -1,5 +1,6 @@
 # update configuration
 ~/Documents/git/dotfiles/setup.sh 0
+# 2 means pull once .bashrc is sourced
 # 1 means pull every time .bashrc is sourced
 # 0 mean do nothing
 
