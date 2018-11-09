@@ -101,6 +101,7 @@ export TERM=xterm
 	alias v='vim'
 	alias ls='ls -hN --color=auto --group-directories-first'
 	alias sl='s | less'
+	alias vh='vim ~/.bash_history'
 	alias lsh="cat ~/.shortcuts.sh"
 
 	# ssh
