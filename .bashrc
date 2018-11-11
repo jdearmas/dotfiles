@@ -53,7 +53,7 @@
 				echo "A pull to the server dotfiles will occur in: $TIME_LEFT secs..." ;}
 
 		function pull_from_origin(){
-				~/Documents/git/dotfiles/setup.sh 2 2> /dev/null ;}
+				~/Documents/git/dotfiles/setup.sh 0 2> /dev/null ;}
 				#echo "fake pull" ;}
 
 		function assess_time(){
@@ -254,6 +254,8 @@ LIGHT_GREEN="\[\033[38;5;208m\]"
 		INDICTORS="\n${GIT}${PY}${PS}"
 		# Set the bash prompt variable.
 		PS1="\n${BLUE}\u${RED}@${LIGHT_BOLD_CYAN}\h:${RED}\w${INDICTORS}"
+		PS1="$PS1${YELLOW}"
+        trap `[[ -t 1 ]] && tput sgr0` DEBUG
 
  	}
 
