@@ -228,4 +228,4 @@
 		"NrrwRgn
 
 				" Open the selected text in a new, synced buffer
-				noremap <Leader>nr :NR!<CR>
+				noremap <Leader>ns :NR!<CR>
