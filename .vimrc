@@ -178,6 +178,9 @@
 				" Go to to previous help topic
 				noremap <Leader>H <C-T>
 
+				" Detect the filetype ( normally restores syntax)
+				nnoremap <Leader>fd :filetype detect<CR>
+
 				" Fuzzy find files
 				nnoremap <Leader>ff :e **/*
 
