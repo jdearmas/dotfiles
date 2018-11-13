@@ -87,9 +87,6 @@
   " apply the indentation of the current line to the next
   set autoindent
 
-  " 'altercation/vim-colors-solarized'
-  set background=dark
-  colorscheme space
 
   " save folds
   augroup remember_folds
@@ -125,6 +122,7 @@
     "autocmd Filetype rmd map <Leader><space> :update<CR> | :execute "!nohup echo<space>"require(rmarkdown);<space>render('<c-r>%')"<space>\|<space>R<space>--vanilla<enter> &"<enter><CR>
 
 "Leader remaps
+
 				" To easily save the current file, while keeping it open
 				noremap <Leader><space> :update<CR>
 
@@ -210,3 +208,13 @@
 				autocmd Filetype rmd inoremap ,r ```{r}<CR>```<CR><CR><esc>2kO
 				autocmd Filetype rmd inoremap ,p ```{python}<CR>```<CR><CR><esc>2kO
 				autocmd Filetype rmd inoremap ,c ```<cr>```<cr><cr><esc>2kO
+
+"Colors 
+
+		"Colorsheme
+				" 'altercation/vim-colors-solarized'
+				set background=dark
+				colorscheme space
+
+		"Folds
+				hi Folded ctermbg=8
