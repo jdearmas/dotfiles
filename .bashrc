@@ -53,7 +53,7 @@
 				echo "A pull to the server dotfiles will occur in: $TIME_LEFT secs..." ;}
 
 		function pull_from_origin(){
-				~/Documents/git/dotfiles/setup.sh 0 2> /dev/null ;}
+				~/Documents/git/dotfiles/setup.sh 2 2> /dev/null ;}
 				#echo "fake pull" ;}
 
 		function assess_time(){
