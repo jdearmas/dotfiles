@@ -7,7 +7,7 @@
   set nu
 
  " Change Current Directory to Current File
-  set autochdir
+  set noautochdir
 
  " Set Character Encoding
  	set encoding=utf-8
