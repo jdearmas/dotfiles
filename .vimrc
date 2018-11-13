@@ -9,6 +9,9 @@
  " Change Current Directory to Current File
   set autochdir
 
+ " Set Character Encoding
+ 	set encoding=utf-8
+
  " Fuzzy find files
   set path+=**
   nnoremap <Leader>ff :vs **/*
