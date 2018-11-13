@@ -218,3 +218,11 @@
 
 		"Folds
 				hi Folded ctermbg=8
+
+
+"Plugins
+
+		"NrrwRgn
+
+				" Open the selected text in a new, synced buffer
+				noremap <Leader>nr :NR!<CR>
