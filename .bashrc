@@ -1,5 +1,5 @@
 # update configuration
-~/Documents/git/dotfiles/setup.sh 0
+~/Documents/git/dotfiles/setup.sh 2
 # 2 means pull once .bashrc is sourced
 # 1 means pull every time .bashrc is sourced
 # 0 mean do nothing
@@ -24,46 +24,44 @@
 					touch $TMP_TIMER_LOG;
 			fi ;}
 
-		function start_timer(){
-				WAIT_TIME=$1
-				NOW=$(date +%s)
-				UPDATE_TIME=$(cat $TMP_TIMER_LOG 2> /dev/null)
-			 	if [ "$NOW" -gt "$UPDATE_TIME" ] 2> /dev/null;
-         		then
-				    assess_time
-                else
+        function start_timer(){
+            WAIT_TIME=$1
+            NOW=$(date +%s)
+            UPDATE_TIME=$(cat $TMP_TIMER_LOG 2> /dev/null)
+            if [ "$NOW" -gt "$UPDATE_TIME" ] 2> /dev/null; then
+                assess_time
+            else
                     declare_time_left
-            	fi
-				if [ -z "$UPDATE_TIME" ];
-				then
-					let "UPDATE_TIME=NOW+WAIT_TIME"
-					echo $UPDATE_TIME > $TMP_TIMER_LOG
-					echo "Pull Countdown Initiated..." 
-				fi ;}
+            fi
+            if [ -z "$UPDATE_TIME" ]; then
+                let "UPDATE_TIME=NOW+WAIT_TIME"
+                echo $UPDATE_TIME > $TMP_TIMER_LOG
+                echo "Pull Countdown Initiated..." 
+            fi ;}
 
-		function clear_timer(){
-				TMP_TIMER_LOG="/tmp/gitbashdottimer.log"
-				rm $TMP_TIMER_LOG; touch $TMP_TIMER_LOG
-				UPDATE_TIME='' ;}
+        function clear_timer(){
+            TMP_TIMER_LOG="/tmp/gitbashdottimer.log"
+            rm $TMP_TIMER_LOG; touch $TMP_TIMER_LOG
+            UPDATE_TIME='' ;}
 
-		function declare_time_left(){
-				UPDATE_TIME=$(cat $TMP_TIMER_LOG 2> /dev/null)
-				NOW=$(date +%s)
-				let "TIME_LEFT=UPDATE_TIME-NOW"
-				echo "A pull to the server dotfiles will occur in: $TIME_LEFT secs..." ;}
+        function declare_time_left(){
+            UPDATE_TIME=$(cat $TMP_TIMER_LOG 2> /dev/null)
+            NOW=$(date +%s)
+            let "TIME_LEFT=UPDATE_TIME-NOW"
+            echo "A pull to the server dotfiles will occur in: $TIME_LEFT secs..." ;}
 
-		function pull_from_origin(){
-				~/Documents/git/dotfiles/setup.sh 2 2> /dev/null ;}
-				#echo "fake pull" ;}
+        function pull_from_origin(){
+            ~/Documents/git/dotfiles/setup.sh 2 2> /dev/null ;}
+            #echo "fake pull" ;}
 
-		function assess_time(){
-			UPDATE_TIME=$(cat $TMP_TIMER_LOG 2> /dev/null)
-			NOW=$(date +%s)
-			if [ "$NOW" -gt "$UPDATE_TIME" ];
-			then
-				clear_timer
-				pull_from_origin
-			fi ;}
+        function assess_time(){
+            UPDATE_TIME=$(cat $TMP_TIMER_LOG 2> /dev/null)
+            NOW=$(date +%s)
+            if [ "$NOW" -gt "$UPDATE_TIME" ];
+            then
+                clear_timer
+                pull_from_origin
+            fi ;}
 
 		create_timer "$TMP_TIMER_LOG"
 		start_timer "$WAIT_TIME"
@@ -254,9 +252,6 @@ LIGHT_GREEN="\[\033[38;5;208m\]"
 		INDICTORS="\n${GIT}${PY}${PS}"
 		# Set the bash prompt variable.
 		PS1="\n${BLUE}\u${RED}@${LIGHT_BOLD_CYAN}\h:${RED}\w${INDICTORS}"
-		PS1="$PS1${YELLOW}"
-        trap `[[ -t 1 ]] && tput sgr0` DEBUG
-
  	}
 
 
