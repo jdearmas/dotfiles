@@ -105,24 +105,19 @@
 	vmap < <gv
 	vmap > >gv
 
+	" Create The Directories AND File of the given path
+				"	ex. :E path/of/new/dirs/file.txt
+							command -nargs=1 E execute('silent! !mkdir -p "$(dirname "<args>")"') <Bar> e <args>
 
-	" autoclose surronding brackets
-	inoremap " ""<left>
-	inoremap ' ''<left>
-	inoremap ( ()<left>
-	inoremap [ []<left>
-	inoremap { {}<left>
-	inoremap {<CR> {<CR>}<ESC>O
-	inoremap {;<CR> {<CR>};<ESC>O
 
 "Calcurse"
- " Make calcurse notes markdown compatible:
-	autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markdown
+				" Make calcurse notes markdown compatible:
+							autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markdown
 
 "RMarkdown"
- " compile
-    autocmd Filetype rmd map <F5> :!echo<space>"require(rmarkdown);<space>render('<c-r>%')"<space>\|<space>R<space>--vanilla<enter>
-    "autocmd Filetype rmd map <Leader><space> :update<CR> | :execute "!nohup echo<space>"require(rmarkdown);<space>render('<c-r>%')"<space>\|<space>R<space>--vanilla<enter> &"<enter><CR>
+				" compile
+						autocmd Filetype rmd map <F5> :!echo<space>"require(rmarkdown);<space>render('<c-r>%')"<space>\|<space>R<space>--vanilla<enter>
+						"autocmd Filetype rmd map <Leader><space> :update<CR> | :execute "!nohup echo<space>"require(rmarkdown);<space>render('<c-r>%')"<space>\|<space>R<space>--vanilla<enter> &"<enter><CR>
 
 "Leader remaps
 
