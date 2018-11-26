@@ -100,7 +100,7 @@ export TERM=xterm
 	alias ls='ls -hN --color=auto --group-directories-first'
 	alias sl='s | less'
 	alias vh='vim ~/.bash_history'
-	alias lsh="cat ~/.shortcuts.sh"
+	alias lsh="cat ~/.shortcuts"
 
 	# ssh
 		alias sshjc='ssh jdearmas@circe.rc.usf.edu -Y'
