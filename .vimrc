@@ -219,6 +219,7 @@
 
 		"Folds
 				hi Folded ctermbg=8
+				hi Folded ctermfg=yellow
 
 
 "Plugins
