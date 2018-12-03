@@ -97,13 +97,14 @@ export TERM=xterm
 	alias s='ls -alFGhN --color=auto --group-directories-first'
 	alias u='cd .. && clear && ls -alFGhN --color=auto --group-directories-first'
 	alias v='vim'
+	alias z='zathura'
 	alias ls='ls -hN --color=auto --group-directories-first'
 	alias sl='s | less'
 	alias vh='vim ~/.bash_history'
 	alias lsh="cat ~/.shortcuts"
 
 	# ssh
-		alias sshjc='ssh jdearmas@circe.rc.usf.edu -Y'
+		alias sshjc='ssh -X jdearmas@circe.rc.usf.edu -Y'
 
 	# SLURM (CIRCE)
 		alias scj='scancel -u jdearmas'
