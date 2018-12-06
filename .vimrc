@@ -3,92 +3,103 @@
  " Map leader to ' '
   let mapleader=' '
 
- " Display line numbers
-  set nu
+		"Set
+			" fix backspace
+			set backspace=indent,eol,start
 
- " Change Current Directory to Current File
-  set noautochdir
+		 " Display line numbers
+			set nu
 
- " Set Character Encoding
- 	set encoding=utf-8
+		 " Change Current Directory to Current File
+			set noautochdir
 
- " Fuzzy find files
-  set path+=**
-  nnoremap <Leader>ff :vs **/*
+		 " Set Character Encoding
+			set encoding=utf-8
 
- " show tab as having 4 spaces of width
-  set tabstop=4
+		 " Fuzzy find files
+			set path+=**
 
- " change width of visual select shift 
-  set shiftwidth=4
+		 " show tab as having 4 spaces of width
+			set tabstop=4
 
-	" replace tabs with spaces
-	set expandtab
+		 " change width of visual select shift 
+			set shiftwidth=4
 
- " Automatic word wrapping
-  set textwidth=80
+			" replace tabs with spaces
+			set expandtab
 
- " show position of cursor (row,col)
-  set ruler
+		 " Automatic word wrapping
+			set textwidth=80
 
- " Turn on dictionray
-  set nospell
+		 " show position of cursor (row,col)
+			set ruler
 
- " paste git commit, timestamp, and datestamp
-  let gitcommitid = system("git rev-parse --short HEAD")
-	 let timestamp = strftime("#### %H:%M:%S")
-	 let datestamp = strftime("### %b %d, %Y")
-	 let entryinfo = printf("## %s \n%s\n%s",gitcommitid,datestamp,timestamp)
-	 nnoremap <F4> :put=entryinfo
+		 " Turn on dictionray
+			set nospell
 
- " Press F5 in normal/insert mode to paste timestamp
-  nnoremap <F7> "=strftime("#### %H:%M:%S")<CR>P
-  inoremap <F7> "=strftime("#### %H:%M:%S")<CR>P
+		 " paste git commit, timestamp, and datestamp
+			let gitcommitid = system("git rev-parse --short HEAD")
+			 let timestamp = strftime("#### %H:%M:%S")
+			 let datestamp = strftime("### %b %d, %Y")
+			 let entryinfo = printf("## %s \n%s\n%s",gitcommitid,datestamp,timestamp)
+			 nnoremap <F4> :put=entryinfo
 
- " Display relative numbers
- set relativenumber
+		 " Press F5 in normal/insert mode to paste timestamp
+			nnoremap <F7> "=strftime("#### %H:%M:%S")<CR>P
+			inoremap <F7> "=strftime("#### %H:%M:%S")<CR>P
 
- " Automatically write a file when leaving a modified buffer
-  set aw
+		 " Display relative numbers
+		 set relativenumber
 
- " Syntax
-  syntax enable
+		 " Automatically write a file when leaving a modified buffer
+			set aw
 
-
- " Display Cursorline
-  set cursorline
-
- " Change Color of Current Line Number
-  hi CursorLineNr ctermfg=4
-
- " Exit out of 'Insert' mode by hitting 'hh' twice
-  inoremap hh <Esc>
-
- " Exit out of 'Visual' mode by hitting 'hh' twice
-  vnoremap hh <Esc>
-  
- " Disable <Esc> in normal mode
-  inoremap <Esc> <nop>
-
- " List all buffers and jump to them using 'gb'
-  nnoremap gb :ls<CR>:b<Space>
-
- " List all recently opened files and open a new buffer
-  nnoremap gs :browse oldfiles<CR>
-
- " Clear search highlight
-  nnoremap ,<space> :nohlsearch<CR>
+		 " Syntax
+			syntax enable
 
 
-  " Highlight (in red) text that go pass 60 character-columns
-  highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-  match OverLength /\%80v.\+/
+		 " Display Cursorline
+			set cursorline
 
-  " syntax/style of the code you are editing
-  set smartindent
+		 " Change Color of Current Line Number
+			hi CursorLineNr ctermfg=4
 
-  " apply the indentation of the current line to the next
-  set autoindent
+		 " Exit out of 'Insert' mode by hitting 'hh' twice
+			inoremap hh <Esc>
+
+		 " Exit out of 'Visual' mode by hitting 'hh' twice
+			vnoremap hh <Esc>
+			
+		 " Disable <Esc> in normal mode
+			inoremap <Esc> <nop>
+
+
+			" Highlight (in red) text that go pass 60 character-columns
+			highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+			match OverLength /\%80v.\+/
+
+			" syntax/style of the code you are editing
+			set smartindent
+
+			" apply the indentation of the current line to the next
+			set autoindent
+
+	" Normal No-Remaps
+				" List all recently opened files and open a new buffer
+						nnoremap gs :browse oldfiles<CR>
+						
+				" List all buffers and jump to them using 'gb'
+						nnoremap gb :ls<CR>:b<Space>
+
+				" Clear search highlight
+						nnoremap ,<space> :nohlsearch<CR>
+
+				"Remap Capital J/K to move up and down blocks
+						noremap J }
+						noremap K {
+
+				" Fuzzy find files
+						nnoremap <Leader>ff :vs **/*
 
 
   " save folds
@@ -98,8 +109,6 @@
   autocmd BufWinEnter * silent! loadview
   augroup END
 
-  " fix backspace
-  set backspace=indent,eol,start
 
 	" Align block of text and keep them selected
 	vmap < <gv
@@ -138,6 +147,9 @@
 
 				" Go to to previous buffer
 				noremap <Leader>h :bp<CR>
+
+    		" Move line under to current
+				noremap <leader>j J
 
 				" Go to to next buffer
 				noremap <Leader>l :bn<CR>
@@ -248,4 +260,6 @@
 
 				call vundle#end()            " required
 				filetype plugin indent on    " required
+
+" Experimental
 
