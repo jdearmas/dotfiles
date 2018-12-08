@@ -99,6 +99,7 @@ export TERM=xterm
 	alias v='vim'
 	alias z='zathura'
 	alias ls='ls -hN --color=auto --group-directories-first'
+	alias lss='ls -lgoh --sort=time'
 	alias sl='s | less'
 	alias vh='vim ~/.bash_history'
 	alias lsh="cat ~/.shortcuts"
