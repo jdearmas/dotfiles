@@ -221,6 +221,7 @@
 				autocmd Filetype rmd inoremap ,r ```{r}<CR>```<CR><CR><esc>2kO
 				autocmd Filetype rmd inoremap ,p ```{python}<CR>```<CR><CR><esc>2kO
 				autocmd Filetype rmd inoremap ,c ```<cr>```<cr><cr><esc>2kO
+        autocmd Filetype rmd inoremap ,t ---<CR>title:Title<CR>author: John Carlos De Armas<CR>output:pdf_document<CR>---
 
 "Colors 
 
