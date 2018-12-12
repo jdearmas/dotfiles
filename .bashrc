@@ -152,6 +152,8 @@ export TERM=xterm
 		#cd() { builtin cd "$@" && clear && ls -alFGhN --color=auto --group-directories-first; }
 		cd() { builtin cd "$@"; clear; ls -alFGhN --color=auto --group-directories-first; }
 		
+	# tmux alias
+		alias ta="tmux attach -t"
 
 # The various escape codes that we can use to color our prompt.
         RED="\[\033[0;31m\]"
