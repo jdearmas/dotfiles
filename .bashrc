@@ -106,6 +106,7 @@ export TERM=xterm
 
 	# ssh
 		alias sshjc='ssh -X jdearmas@circe.rc.usf.edu -Y'
+		alias sshjc1='ssh -X jdearmas@131.247.250.177 -Y'
 
 	# SLURM (CIRCE)
 		alias scj='scancel -u jdearmas'
