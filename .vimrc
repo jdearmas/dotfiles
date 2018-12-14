@@ -223,6 +223,10 @@
 				autocmd Filetype rmd inoremap ,c ```<cr>```<cr><cr><esc>2kO
         autocmd Filetype rmd inoremap ,t ---<CR>title:Title<CR>author: John Carlos De Armas<CR>output:pdf_document<CR>---
 
+		"C/C++
+        autocmd Filetype cpp inoremap ,m int main(int argc, char **argv){<CR><CR>}
+        autocmd Filetype cpp inoremap ,p std::cout <<<<std::endl;<Left><Left><Left><Left><Left><Left><Left><Left>
+
 "Colors 
 
 		"Colorsheme

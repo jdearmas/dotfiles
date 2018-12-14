@@ -155,6 +155,7 @@ export TERM=xterm
 		
 	# tmux alias
 		alias ta="tmux attach -t"
+		alias tl="tmux ls"
 
 # The various escape codes that we can use to color our prompt.
         RED="\[\033[0;31m\]"
