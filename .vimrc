@@ -221,11 +221,17 @@
 				autocmd Filetype rmd inoremap ,r ```{r}<CR>```<CR><CR><esc>2kO
 				autocmd Filetype rmd inoremap ,p ```{python}<CR>```<CR><CR><esc>2kO
 				autocmd Filetype rmd inoremap ,c ```<cr>```<cr><cr><esc>2kO
-        autocmd Filetype rmd inoremap ,t ---<CR>title:Title<CR>author: John Carlos De Armas<CR>output:pdf_document<CR>---
+                autocmd Filetype rmd inoremap ,t ---<CR>title:Title<CR>author: John Carlos De Armas<CR>output:pdf_document<CR>---
 
 		"C/C++
-        autocmd Filetype cpp inoremap ,m int main(int argc, char **argv){<CR><CR>}
-        autocmd Filetype cpp inoremap ,p std::cout <<<<std::endl;<Left><Left><Left><Left><Left><Left><Left><Left>
+		        "source
+
+                    autocmd Filetype cpp inoremap ,m int main(int argc, char **argv){<CR><CR>}
+                    autocmd Filetype cpp inoremap ,p std::cout <<<<std::endl;<Left><Left><Left><Left><Left><Left><Left><Left>
+
+		        "makefile
+
+                    autocmd Filetype make inoremap ,t # Makefile for {USE} <CR># Written By: John Carlos De Armas <CR># Date: {DATE}
 
 "Colors 
 
