@@ -93,6 +93,7 @@ export TERM=xterm
 	alias h='history'
 	#	alias i=//TAKEN
 	alias l='less -r'
+	alias m='make -s'
 	alias rr='source ~/.bashrc'
 	alias s='ls -alFGhN --color=auto --group-directories-first'
 	alias u='cd .. && clear && ls -alFGhN --color=auto --group-directories-first'
