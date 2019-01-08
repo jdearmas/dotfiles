@@ -182,6 +182,9 @@
 				vnoremap <Leader>c :norm i#<CR>
 				vnoremap <Leader>uc :norm x<CR>
 
+                " fold the next c++ function
+                noremap <Leader>F 0v/{<CR>%zf
+
 				" Go to help topic
 				noremap <Leader>L <C-]>
 
