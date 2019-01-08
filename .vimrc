@@ -29,7 +29,7 @@
 			set expandtab
 
 		 " Automatic word wrapping
-			set textwidth=80
+			set textwidth=75
 
 		 " show position of cursor (row,col)
 			set ruler
