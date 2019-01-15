@@ -160,10 +160,11 @@ export TERM=xterm
 		alias tl="tmux ls"
 
 # The various escape codes that we can use to color our prompt.
-        RED="\[\033[0;31m\]"
+			 BOLD=$(tput bold)
+        RED="\[\033[1;31m\]"
      #YELLOW="\[\033[33m\]"
      YELLOW="\[\033[38;5;221m\]"
-      GREEN="\[\033[0;32m\]"
+      GREEN="\[\033[1;32m\]"
        BLUE="\[\033[38;5;27m\]"
   LIGHT_RED="\[\033[1;31m\]"
 LIGHT_BOLD_CYAN="\[\033[38;5;51m\]"
@@ -259,7 +260,7 @@ LIGHT_GREEN="\[\033[38;5;208m\]"
 		PS=" ${BLUE}${PROMPT_SYMBOL}${COLOR_NONE} "
 		INDICTORS="\n${GIT}${PY}${PS}"
 		# Set the bash prompt variable.
-		PS1="\n${BLUE}\u${RED}@${LIGHT_BOLD_CYAN}\h:${RED}\w${INDICTORS}"
+		PS1="\n${BOLD}${BLUE}\u${BOLD}${RED}@${BOLD}${LIGHT_BOLD_CYAN}\h:${BOLD}${RED}\w${BOLD}${INDICTORS}"
  	}
 
 
