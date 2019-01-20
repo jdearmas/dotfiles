@@ -125,7 +125,8 @@
 
 "RMarkdown"
 				" compile
-						autocmd Filetype rmd map <F5> :!echo<space>"require(rmarkdown);<space>render('<c-r>%')"<space>\|<space>R<space>--vanilla<enter>
+						autocmd Filetype rmd map <F5> :!echo<space>"require(rmarkdown);<space>render('<c-r>%')"<space>\|<space>R<space>--vanilla<space>--slave<enter>
+						autocmd Filetype rmd map <F4> :!grep "#.*" @% >> @%
 						"autocmd Filetype rmd map <Leader><space> :update<CR> | :execute "!nohup echo<space>"require(rmarkdown);<space>render('<c-r>%')"<space>\|<space>R<space>--vanilla<enter> &"<enter><CR>
 
 "Leader remaps
@@ -191,6 +192,9 @@
 				" Go to to previous help topic
 				noremap <Leader>H <C-T>
 
+				" Captialize The First Letter Of Every Word In A Line
+				nnoremap <Leader>U :s/\<./\u&/g
+ 
 				" Detect the filetype ( normally restores syntax)
 				nnoremap <Leader>fd :filetype detect<CR>
 
