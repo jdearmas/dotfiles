@@ -3,78 +3,77 @@
  " Map leader to ' '
   let mapleader=' '
 
-		"Set
+" General Settings
 			" fix backspace
 			set backspace=indent,eol,start
 
-		 " Display line numbers
+		 	" Display line numbers
 			set nu
 
-		 " Change Current Directory to Current File
+		 	" Change Current Directory to Current File
 			set noautochdir
 
-		 " Set Character Encoding
+		 	" Set Character Encoding
 			set encoding=utf-8
 
-		 " Fuzzy find files
+		 	" Fuzzy find files
 			set path+=**
 
-		 " show tab as having 4 spaces of width
+		 	" show tab as having 4 spaces of width
 			set tabstop=4
 
-		 " change width of visual select shift 
+		 	" change width of visual select shift 
 			set shiftwidth=4
 
 			" replace tabs with spaces
 			set expandtab
 
-		 " Automatic word wrapping
+		 	" Automatic word wrapping
 			set textwidth=75
 
-		 " show position of cursor (row,col)
+		 	" show position of cursor (row,col)
 			set ruler
 
-		 " Turn on dictionray
+		 	" Turn on dictionray
 			set nospell
 
-		 " paste git commit, timestamp, and datestamp
+		 	" paste git commit, timestamp, and datestamp
 			let gitcommitid = system("git rev-parse --short HEAD")
-			 let timestamp = strftime("#### %H:%M:%S")
-			 let datestamp = strftime("### %b %d, %Y")
-			 let entryinfo = printf("## %s \n%s\n%s",gitcommitid,datestamp,timestamp)
-			 nnoremap <F4> :put=entryinfo
+			let timestamp = strftime("#### %H:%M:%S")
+			let datestamp = strftime("### %b %d, %Y")
+			let entryinfo = printf("## %s \n%s\n%s",gitcommitid,datestamp,timestamp)
+			nnoremap <F4> :put=entryinfo
 
-		 " Press F5 in normal/insert mode to paste timestamp
+		 	" in normal/insert mode to paste timestamp
 			nnoremap <F7> "=strftime("#### %H:%M:%S")<CR>P
 			inoremap <F7> "=strftime("#### %H:%M:%S")<CR>P
 
-		 " Display relative numbers
-		 set relativenumber
+		 	" display relative numbers
+		 	set relativenumber
 
-		 " Automatically write a file when leaving a modified buffer
+		 	" automatically write a file when leaving a modified buffer
 			set aw
 
-		 " Syntax
+		 	" syntax
 			syntax enable
 
-
-		 " Display Cursorline
+		 	" display cursorline
 			set cursorline
 
-		 " Change Color of Current Line Number
+		 " change color of current line number
 			hi CursorLineNr ctermfg=4
 
-		 " Exit out of 'Insert' mode by hitting 'hh' twice
+		 " exit out of 'insert' mode by hitting 'hh' twice
 			inoremap hh <Esc>
 
-		 " Exit out of 'Visual' mode by hitting 'hh' twice
+		 " exit out of 'visual' mode by hitting 'hh' twice
 			vnoremap hh <Esc>
 			
-		 " Disable <Esc> in normal mode
+		 " disable <esc> in normal mode
 			inoremap <Esc> <nop>
 
 
-			" Highlight (in red) text that go pass 60 character-columns
+			" highlight (in red) text that go pass 60 character-columns
 			highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 			match OverLength /\%80v.\+/
 
@@ -84,50 +83,61 @@
 			" apply the indentation of the current line to the next
 			set autoindent
 
-	" Normal No-Remaps
-				" List all recently opened files and open a new buffer
-						nnoremap gs :browse oldfiles<CR>
-						
-				" List all buffers and jump to them using 'gb'
-						nnoremap gb :ls<CR>:b<Space>
 
-				" Clear search highlight
-						nnoremap ,<space> :nohlsearch<CR>
+" Normal Mode No-Remaps
+		" List all recently opened files and open a new buffer
+				nnoremap gs :browse oldfiles<CR>
+				
+		" List all buffers and jump to them using 'gb'
+				nnoremap gb :ls<CR>:b<Space>
 
-				"Remap Capital J/K to move up and down blocks
-						noremap J }
-						noremap K {
+		" Clear search highlight
+				nnoremap ,<space> :nohlsearch<CR>
 
-				" Fuzzy find files
-						nnoremap <Leader>ff :vs **/*
+		"Remap Capital J/K to move up and down blocks
+				noremap J }
+				noremap K {
 
+		" Fuzzy find files
+				nnoremap <Leader>ff :vs **/*
 
-  " save folds
-  augroup remember_folds
-  autocmd!
-  autocmd BufWinLeave * mkview
-  autocmd BufWinEnter * silent! loadview
-  augroup END
+" Visual Mode Maps
+		" Align block of text and keep them selected
+				vmap < <gv
+				vmap > >gv
 
-
-	" Align block of text and keep them selected
-	vmap < <gv
-	vmap > >gv
-
-	" Create The Directories AND File of the given path
-				"	ex. :E path/of/new/dirs/file.txt
-							command -nargs=1 E execute('silent! !mkdir -p "$(dirname "<args>")"') <Bar> e <args>
+" Folds
+		" save folds
+				augroup remember_folds
+				autocmd!
+				autocmd BufWinLeave * mkview
+				autocmd BufWinEnter * silent! loadview
+				augroup END
 
 
 "Calcurse"
 				" Make calcurse notes markdown compatible:
-							autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markdown
+							autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* 
+								\ set filetype=markdown
 
-"RMarkdown"
-				" compile
-						autocmd Filetype rmd map <F5> :!echo<space>"require(rmarkdown);<space>render('<c-r>%')"<space>\|<space>R<space>--vanilla<space>--slave<enter>
-						autocmd Filetype rmd map <F4> :!grep "#.*" @% >> @%
-						"autocmd Filetype rmd map <Leader><space> :update<CR> | :execute "!nohup echo<space>"require(rmarkdown);<space>render('<c-r>%')"<space>\|<space>R<space>--vanilla<enter> &"<enter><CR>
+"Commands"
+				"vim"
+								" Create The Directories AND File of the given path
+								"	ex. :E path/of/new/dirs/file.txt
+												command -nargs=1 E 
+													\ execute('silent! !mkdir -p "$(dirname "<args>")"') 
+													\ <Bar> e <args>
+
+				"rmarkdown"
+								" compile
+												autocmd Filetype rmd map <F5> 
+													\ :!echo<space>"require(rmarkdown);
+													\ <space>render('<c-r>%')"<space>\|
+													\ <space>R<space>--vanilla<space>--slave<enter>
+										
+				"bash/sh"
+								" generate toc	
+												autocmd Filetype sh map <F3> :0read grep "^\#\s\S" %
 
 "Leader remaps
 
@@ -183,8 +193,8 @@
 				vnoremap <Leader>c :norm i#<CR>
 				vnoremap <Leader>uc :norm x<CR>
 
-                " fold the next c++ function
-                noremap <Leader>F 0v/{<CR>%zf
+				" fold the next c++ function
+				noremap <Leader>F 0v/{<CR>%zf
 
 				" Go to help topic
 				noremap <Leader>L <C-]>
@@ -228,7 +238,9 @@
 				autocmd Filetype rmd inoremap ,r ```{r}<CR>```<CR><CR><esc>2kO
 				autocmd Filetype rmd inoremap ,p ```{python}<CR>```<CR><CR><esc>2kO
 				autocmd Filetype rmd inoremap ,c ```<cr>```<cr><cr><esc>2kO
-                autocmd Filetype rmd inoremap ,t ---<CR>title:Title<CR>author: John Carlos De Armas<CR>output:pdf_document<CR>---
+				autocmd Filetype rmd inoremap ,t ---<CR>title:Title<CR>
+					\ author: John Carlos De Armas<CR>
+					\ output:pdf_document<CR>---
 
 		"C/C++
 		        "source
