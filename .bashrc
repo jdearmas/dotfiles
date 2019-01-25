@@ -121,6 +121,10 @@ export TERM=xterm
 		ws() {
 						watch -n 3 'squeue -o "%.9i %.9P %.8j %.8u %.2t %.10M %.6D %C" | grep -E "jdearmas|CPUS"'
 		}
+		alias sinfo_details="sinfo -o '%30N %.5D %9P %5T %.20C %.8z %.6m %.8d %.6w %G %f %20E'"
+		alias sinfo_hosts="sinfo -o '%70N %.5D %.9P %.5T %.15C %.8z %.6m %.8d %.6w %20E'"
+
+
 
 	# git alias
 		alias gl='git log --graph --oneline --decorate --all --color=auto'
