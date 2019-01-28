@@ -1,7 +1,11 @@
-"" Vanilla Vim
+"        _
+" __   _(_)_ __ ___  _ __ ___
+" \ \ / / | '_ ` _ \| '__/ __|
+"  \ V /| | | | | | | | | (__
+"   \_/ |_|_| |_| |_|_|  \___|
 
- " Map leader to ' '
-  let mapleader=' '
+" Map leader to <space>
+	let mapleader=' '
 
 " General Settings
 			" fix backspace
@@ -22,7 +26,7 @@
 		 	" show tab as having 4 spaces of width
 			set tabstop=4
 
-		 	" change width of visual select shift 
+		 	" change width of visual select shift
 			set shiftwidth=4
 
 			" replace tabs with spaces
@@ -34,15 +38,8 @@
 		 	" show position of cursor (row,col)
 			set ruler
 
-		 	" Turn on dictionray
+		 	" Turn off dictionray
 			set nospell
-
-		 	" paste git commit, timestamp, and datestamp
-			let gitcommitid = system("git rev-parse --short HEAD")
-			let timestamp = strftime("#### %H:%M:%S")
-			let datestamp = strftime("### %b %d, %Y")
-			let entryinfo = printf("## %s \n%s\n%s",gitcommitid,datestamp,timestamp)
-			nnoremap <F4> :put=entryinfo
 
 		 	" in normal/insert mode to paste timestamp
 			nnoremap <F7> "=strftime("#### %H:%M:%S")<CR>P
@@ -63,16 +60,6 @@
 		 " change color of current line number
 			hi CursorLineNr ctermfg=4
 
-		 " exit out of 'insert' mode by hitting 'hh' twice
-			inoremap hh <Esc>
-
-		 " exit out of 'visual' mode by hitting 'hh' twice
-			vnoremap hh <Esc>
-			
-		 " disable <esc> in normal mode
-			inoremap <Esc> <nop>
-
-
 			" highlight (in red) text that go pass 60 character-columns
 			highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 			match OverLength /\%80v.\+/
@@ -84,10 +71,18 @@
 			set autoindent
 
 
+" BufWrite
+			" Automatically deletes all trailing whitespace on save.
+			autocmd BufWritePre * %s/\s\+$//e
+
+			" When shortcut files are updated, renew bash and ranger configs with new material:
+			autocmd BufWritePost ~/.bm* !shortcuts
+
+
 " Normal Mode No-Remaps
 		" List all recently opened files and open a new buffer
 				nnoremap gs :browse oldfiles<CR>
-				
+
 		" List all buffers and jump to them using 'gb'
 				nnoremap gb :ls<CR>:b<Space>
 
@@ -117,26 +112,19 @@
 
 "Calcurse"
 				" Make calcurse notes markdown compatible:
-							autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* 
+							autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/*
 								\ set filetype=markdown
 
 "Commands"
 				"vim"
 								" Create The Directories AND File of the given path
 								"	ex. :E path/of/new/dirs/file.txt
-												command -nargs=1 E 
-													\ execute('silent! !mkdir -p "$(dirname "<args>")"') 
+												command -nargs=1 E
+													\ execute('silent! !mkdir -p "$(dirname "<args>")"')
 													\ <Bar> e <args>
 
-				"rmarkdown"
-								" compile
-												autocmd Filetype rmd map <F5> 
-													\ :!echo<space>"require(rmarkdown);
-													\ <space>render('<c-r>%')"<space>\|
-													\ <space>R<space>--vanilla<space>--slave<enter>
-										
 				"bash/sh"
-								" generate toc	
+								" generate toc
 												autocmd Filetype sh map <F3> :0read grep "^\#\s\S" %
 
 "Leader remaps
@@ -144,32 +132,38 @@
 				" To easily save the current file, while keeping it open
 				noremap <Leader><space> :update<CR>
 
-        " highlight all lines
+				" highlight all lines
 				noremap <Leader>a  ggVG<CR>
 
 				" Open bash in vim
 				noremap <Leader>b :!bash<CR>
 
+				" Compile document, be it groff/LaTeX/markdown/etc.
+				map <leader>c :w! \| !compiler <c-r>%<CR><CR>
+
 				" Execute/run current buffer bash file
 				noremap <Leader>e :!%:p:<CR>
 
-				" Fuzzy Find Plugin 
+				" Fuzzy Find Plugin
 				noremap <Leader>f :FZF<CR>
 
 				" Go to to previous buffer
 				noremap <Leader>h :bp<CR>
 
-    		" Move line under to current
+				" Move line under to current
 				noremap <leader>j J
 
 				" Go to to next buffer
 				noremap <Leader>l :bn<CR>
 
+				" Open new split
+				map <leader>n :vsp<CR>
+
 				" set filetype to gccout
 				noremap <Leader>m :set filetype=gccout<CR>
-				
-				" Return to previous tag
-				noremap <Leader>o <C-o>
+
+				" Open corresponding .pdf/.html or preview
+				map <leader>o :!opout <c-r>%<CR><CR>
 
 				" Paste into vim in normal mode
 				noremap<leader>p "+p
@@ -189,6 +183,7 @@
 				" Copy into vim in normal mode
 				noremap<leader>y "+y
 
+
 				" Comment visually selected lines
 				vnoremap <Leader>c :norm i#<CR>
 				vnoremap <Leader>uc :norm x<CR>
@@ -204,7 +199,7 @@
 
 				" Captialize The First Letter Of Every Word In A Line
 				nnoremap <Leader>U :s/\<./\u&/g
- 
+
 				" Detect the filetype ( normally restores syntax)
 				nnoremap <Leader>fd :filetype detect<CR>
 
@@ -225,7 +220,7 @@
 		"MARKDOWN
 				autocmd Filetype markdown,rmd map <leader>w yiWi[<esc>Ea](<esc>pa)
 				autocmd Filetype markdown,rmd inoremap ,n ---<Enter><Enter>
-				autocmd Filetype markdown,rmd inoremap ,b ****<++><Esc>F*hi
+				autocmd Filetype markdown,rmd inoremap ,b ****<Esc>F*hi
 				autocmd Filetype markdown,rmd inoremap ,s ~~~~<++><Esc>F~hi
 				autocmd Filetype markdown,rmd inoremap ,e **<++><Esc>F*i
 				autocmd Filetype markdown,rmd inoremap ,h ***<Space><++><Esc>F=hi
@@ -252,12 +247,12 @@
 
                     autocmd Filetype make inoremap ,t # Makefile for {USE} <CR># Written By: John Carlos De Armas <CR># Date: {DATE}
 
-"Colors 
+"Colors
 
 		"Colorsheme
 				" 'altercation/vim-colors-solarized'
+				"colorscheme space
 				set background=dark
-				colorscheme space
 
 		"Folds
 				hi Folded ctermbg=8
@@ -266,30 +261,32 @@
 
 "Plugins
 
-		"NrrwRgn
-
-				" Open the selected text in a new, synced buffer
-				noremap <Leader>ns :NR!<CR>
-
-
-		"Vundle
-				filetype off                  " required
-				
-				" set the runtime path to include Vundle and initialize
-				set rtp+=~/.vim/bundle/Vundle.vim
-				call vundle#begin()
-				" alternatively, pass a path where Vundle should install plugins
-				"call vundle#begin('~/some/path/here')
-				
-				" let Vundle manage Vundle, required
-				Plugin 'VundleVim/Vundle.vim'
-			
-				" C/C++ Autocompletion
-				Plugin 'Valloric/YouCompleteMe'
-
-
+		"Plugged
 				call vundle#end()            " required
 				filetype plugin indent on    " required
+
+				call plug#begin('~/.vim/plugged')
+						Plug 'junegunn/goyo.vim'
+						Plug 'PotatoesMaster/i3-vim-syntax'
+						Plug 'jreybert/vimagit'
+						Plug 'LukeSmithxyz/vimling'
+						Plug 'vimwiki/vimwiki'
+						Plug 'dag/vim-fish'
+				call plug#end()
+
+		" vimwiki
+				" Ensure files are read as what I want:
+					let g:vimwiki_ext2syntax = {'.Rmd': 'markdown',
+											\'.rmd': 'markdown',
+											\'.md': 'markdown',
+											\'.markdown': 'markdown',
+											\'.mdown': 'markdown'}
+					autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/*
+											\set filetype=markdown
+					autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man
+											\set filetype=groff
+					autocmd BufRead,BufNewFile *.tex
+											\set filetype=tex
 
 " Experimental
 
