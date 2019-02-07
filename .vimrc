@@ -63,16 +63,6 @@
 		 " change color of current line number
 			hi CursorLineNr ctermfg=4
 
-		 " exit out of 'insert' mode by hitting 'hh' twice
-			inoremap hh <Esc>
-
-		 " exit out of 'visual' mode by hitting 'hh' twice
-			vnoremap hh <Esc>
-			
-		 " disable <esc> in normal mode
-			inoremap <Esc> <nop>
-
-
 			" highlight (in red) text that go pass 60 character-columns
 			highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 			match OverLength /\%80v.\+/
