@@ -41,6 +41,9 @@
 		 	" Turn off dictionray
 			set nospell
 
+		 	" case insensitive, unless the 1st character is uppercase
+			set ignorecase smartcase
+
 		 	" in normal/insert mode to paste timestamp
 			nnoremap <F7> "=strftime("#### %H:%M:%S")<CR>P
 			inoremap <F7> "=strftime("#### %H:%M:%S")<CR>P
