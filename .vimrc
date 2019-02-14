@@ -183,6 +183,9 @@
 				" Open vimrc
 				noremap <Leader>v :e $MYVIMRC<CR>
 
+				" expermental word wrap
+				noremap <Leader>w :set textwidth=40
+
 				" Copy into vim in normal mode
 				noremap<leader>y "+y
 
