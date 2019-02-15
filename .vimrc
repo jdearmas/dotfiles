@@ -268,7 +268,6 @@
 "Plugins
 
 		"Plugged
-				call vundle#end()            " required
 				filetype plugin indent on    " required
 
 				call plug#begin('~/.vim/plugged')
