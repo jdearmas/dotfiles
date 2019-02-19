@@ -36,7 +36,7 @@
             if [ -z "$UPDATE_TIME" ]; then
                 let "UPDATE_TIME=NOW+WAIT_TIME"
                 echo $UPDATE_TIME > $TMP_TIMER_LOG
-                echo "Pull Countdown Initiated..." 
+                echo "Pull Countdown Initiated..."
             fi ;}
 
         function clear_timer(){
@@ -112,7 +112,7 @@ export TERM=xterm
 
 	# SLURM (CIRCE)
 		alias scj='scancel -u jdearmas'
-	
+
 	# sys admin alias
 		alias sdn='shutdown now'
 		alias ds='du -sh ./'
@@ -129,11 +129,12 @@ export TERM=xterm
 	# git alias
 		alias gl='git log --graph --oneline --decorate --all --color=auto'
 		alias gs='git status'
+		alias gd='git diff --color=always'
 		alias gaa='git add .'
 		alias gc='git commit'
-		alias gplom='git pull origin master' 
+		alias gplom='git pull origin master'
 		alias gpsom='git push origin master'
-	
+
 	# directory movement
 		alias cdg='cd ~/Documents/git'
 		alias cdgd='cd ~/Documents/git/dotfiles'
@@ -155,10 +156,10 @@ export TERM=xterm
 											cd ..
 										done
 						}
-		# If i change directories, clear the terminal and list the content of that directory 
+		# If i change directories, clear the terminal and list the content of that directory
 		#cd() { builtin cd "$@" && clear && ls -alFGhN --color=auto --group-directories-first; }
 		cd() { builtin cd "$@"; clear; ls -alFGhN --color=auto --group-directories-first; }
-		
+
 	# tmux alias
 		alias ta="tmux attach -t"
 		alias tl="tmux ls"
@@ -197,7 +198,7 @@ LIGHT_GREEN="\[\033[38;5;208m\]"
  }
 
 
- function parse_git_dirty() 
+ function parse_git_dirty()
  {
     GIT_STATE=$(git status 2> /dev/null | tail -n1)
     if [ "$GIT_STATE" != "nothing to commit, working tree clean" ]
@@ -209,7 +210,7 @@ LIGHT_GREEN="\[\033[38;5;208m\]"
  }
 
 # Format time just the way I likes it
- fmt_time () { 
+ fmt_time () {
      if [ `date +%p` = "PM" ]; then
          meridiem="pm"
      else
@@ -219,7 +220,7 @@ LIGHT_GREEN="\[\033[38;5;208m\]"
  }
 
 
- # Return the prompt symbol to use, colorized based 
+ # Return the prompt symbol to use, colorized based
  # on the return value of the previous command.
  function set_prompt_symbol () {
    if test $1 -eq 0 ; then
@@ -243,7 +244,7 @@ LIGHT_GREEN="\[\033[38;5;208m\]"
  # Set the full bash prompt.
  	function set_bash_prompt () {
 
-		# Set the PROMPT_SYMBOL variable. 
+		# Set the PROMPT_SYMBOL variable.
 		# We do this first so we don't lose the
 		# return value of the last command.
 		set_prompt_symbol $?
