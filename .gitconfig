@@ -1,0 +1,12 @@
+[user]
+    email = dearmas.john1996@gmail.com
+    name = John De Armas
+
+[color]
+    status = auto
+
+[color "status"]
+    added = green
+    changed = blue
+    untracked = magenta
+    deleted = red
