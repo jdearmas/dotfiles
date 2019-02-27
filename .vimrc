@@ -73,6 +73,9 @@
 			" apply the indentation of the current line to the next
 			set autoindent
 
+            " to highlight search matcehs
+            set hlsearch
+
 
 " BufWrite
 			" Automatically deletes all trailing whitespace on save.
@@ -159,17 +162,22 @@
 				" Go to to next buffer
 				noremap <Leader>l :bn<CR>
 
-				" Open new split
-				map <leader>n :vsp<CR>
 
 				" set filetype to gccout
 				noremap <Leader>m :set filetype=gccout<CR>
+
+				" Open new split
+				map <leader>n :vsp<CR>
+
 
 				" Open corresponding .pdf/.html or preview
 				map <leader>o :!opout <c-r>%<CR><CR>
 
 				" Paste into vim in normal mode
 				noremap<leader>p "+p
+
+				" browse oldfiles using a filter
+				noremap <Leader>q q:ibro filter // ol<ESC>3<LEFT>i
 
 				" Autopopulate substitution template into ex command line mode
 				noremap<leader>r q:i%s///g<Left><Left><Left>
