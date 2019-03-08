@@ -1,0 +1,4 @@
+function u
+    cd ..
+end
+

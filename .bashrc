@@ -290,7 +290,7 @@ LIGHT_GREEN="\[\033[38;5;208m\]"
 
 # Color Man Pages
     # Get color support for 'less'
-    export LESS="--RAW-CONTROL-CHARS"
+    export LESS="-iXR --RAW-CONTROL-CHARS"
 
     # Use colors for less, man, etc.
     [[ -f ~/.LESS_TERMCAP ]] && . ~/.LESS_TERMCAP
