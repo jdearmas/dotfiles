@@ -6,7 +6,7 @@ function fish_prompt
 	set skeleton_prompt "["			"\$whoami" 			\
 						"@" 		"\$prompt_hostname" \
 						" " 		"\$prompt_pwd" 		\
-						"]" 		"\$ "
+						"]" 		" "
 
 	set prompt_colors 	"red" 		"yellow" 			\
 						"green"		"blue" 				\
@@ -34,15 +34,16 @@ function fish_prompt
        or test "$fish_key_bindings" = "fish_hybrid_key_bindings"
        	switch $fish_bind_mode
             case default
-    			set_color red
+    			set_color green
             case insert
-                set_color grey
-            case replace-one
                 set_color green
+            case replace-one
+                set_color yellow
             case visual
                 set_color magenta
         end
-		printf '$'
+        #printf '$'
+        printf '🐟'
         set_color normal
 		printf ' '
     end

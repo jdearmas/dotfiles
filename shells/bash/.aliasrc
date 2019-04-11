@@ -1,0 +1,85 @@
+#!/bin/sh
+
+# User specific aliases and functions
+	alias a='clear && ls -alFGhN --color=auto --group-directories-first'
+	alias c='clear'
+	alias e='exit'
+	#	alias f=//TAKEN
+	alias g='grep -rin --color=always'
+	alias h='history'
+	#	alias i=//TAKEN
+	alias l='less -r'
+	alias m='make -s'
+	alias rr='source ~/.bashrc'
+	alias s='ls -alFGhN --color=auto --group-directories-first'
+	alias u='cd .. && clear && ls -alFGhN --color=auto --group-directories-first'
+	alias v='vim'
+	alias z='zathura'
+	alias ls='ls -hN --color=auto --group-directories-first'
+	alias lss='ls -lgoh --sort=time'
+	alias sb='source ~/.bashrc'
+	alias sl='s | less'
+	alias vh='vim ~/.bash_history'
+	alias lsh="cat ~/.shortcuts"
+
+	# ssh
+    alias sshjc='ssh -X jdearmas@circe.rc.usf.edu -Y'
+    alias sshjc1='ssh -X jdearmas@131.247.250.177 -Y'
+
+	# SLURM (CIRCE)
+    alias scj='scancel -u jdearmas'
+
+	# sys admin alias
+    alias sdn='shutdown now'
+    alias ds='du -sh ./'
+    alias dsa='du -h --max-depth=1'
+
+    # functions
+		ws() {
+						watch -n 3 'squeue -o "%.9i %.9P %.8j %.8u %.2t %.10M %.6D %C" | grep -E "jdearmas|CPUS"'
+		}
+		alias sinfo_details="sinfo -o '%30N %.5D %9P %5T %.20C %.8z %.6m %.8d %.6w %G %f %20E'"
+		alias sinfo_hosts="sinfo -o '%70N %.5D %.9P %.5T %.15C %.8z %.6m %.8d %.6w %20E'"
+
+
+
+	# git alias
+		alias gl='git log --graph --oneline --decorate --all --color=auto'
+		alias gs='git status'
+		alias gd='git diff --color=always'
+		alias gaa='git add .'
+		alias gc='git commit'
+		alias gplom='git pull origin master'
+		alias gpsom='git push origin master'
+
+	# directory movement
+		alias cdg='cd ~/Documents/git'
+		alias cdgd='cd ~/Documents/git/dotfiles'
+
+	# Youtube
+		alias yt="youtube-dl --add-metadata -ic" # Download video link
+		alias yta="youtube-dl --add-metadata -xic" # Download only audio
+
+
+	# directory movement mk. 2
+    alias gtd='function _gtd(){ dp="$1"; fdp=$(find . -iname $dp -type d); cd $fdp; };_gtd'
+    alias f='find . -iname'
+
+    # go up 'x' number of directories
+    uu() {
+        start=1
+        end=$1
+        for ((i=start; i<=end; i++)); do
+            cd ..
+    done
+						}
+    # If i change directories, clear the
+    # terminal and list the content of
+    # that directory
+
+    cd() {
+        builtin cd "$@"; clear; ls -alFGhN --color=auto --group-directories-first; }
+
+	# tmux alias
+		alias ta="tmux attach -t"
+		alias tl="tmux ls"
