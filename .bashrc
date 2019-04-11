@@ -12,19 +12,19 @@
 
 # load colors
     [ -f "$HOME/.config/prompt" ] && \
-        source "$HOME/.config/colors"
+        source "$HOME/.config/bash/colors"
 
 # load prompt
     [ -f "$HOME/.config/prompt" ] && \
-        source "$HOME/.config/prompt"
+        source "$HOME/.config/bash/prompt"
 
 # load directory shortcuts
     [ -f "$HOME/.config/shortcutrc" ] && \
-        source "$HOME/.config/shortcutrc"
+        source "$HOME/.config/bash/shortcutrc"
 
 # load aliases
     [ -f "$HOME/.config/aliasrc" ] && \
-        source "$HOME/.config/aliasrc"
+        source "$HOME/.config/bash/aliasrc"
 
 
 # Color Man Pages
