@@ -3,15 +3,15 @@ function fish_prompt
         set -g VIRTUAL_ENV_DISABLE_PROMPT true
     end
 
-	set skeleton_prompt "["			"\$whoami" 			\
-						"@" 		"\$prompt_hostname" \
-						" " 		"\$prompt_pwd" 		\
-						"]" 		" "
+	set skeleton_prompt "[" "\$whoami" \
+						"@" "\$hostname" \
+						" " "\$prompt_pwd" \
+						"]" " "
 
-	set prompt_colors 	"red" 		"yellow" 			\
-						"green"		"blue" 				\
-						"normal" 	"purple" 			\
-						"red" 		"grey"
+	set prompt_colors 	"red" "yellow" \
+						"green" "blue" \
+						"normal" "purple" \
+						"red" "grey"
 
 	set prompt_size (count $skeleton_prompt)
 
