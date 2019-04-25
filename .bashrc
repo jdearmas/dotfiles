@@ -11,19 +11,19 @@
     export TERM=xterm
 
 # load colors
-    [ -f "$HOME/.config/prompt" ] && \
+    [ -f "$HOME/.config/bash/prompt" ] && \
         source "$HOME/.config/bash/colors"
 
 # load prompt
-    [ -f "$HOME/.config/prompt" ] && \
+    [ -f "$HOME/.config/bash/prompt" ] && \
         source "$HOME/.config/bash/prompt"
 
 # load directory shortcuts
-    [ -f "$HOME/.config/shortcutrc" ] && \
+    [ -f "$HOME/.config/bash/shortcutrc" ] && \
         source "$HOME/.config/bash/shortcutrc"
 
 # load aliases
-    [ -f "$HOME/.config/aliasrc" ] && \
+    [ -f "$HOME/.config/bash/aliasrc" ] && \
         source "$HOME/.config/bash/aliasrc"
 
 
