@@ -297,6 +297,7 @@
 
     " vimwiki
             " Ensure files are read as what I want:
+                let g:vimwiki_dir_link = 'index'
                 let g:vimwiki_ext2syntax = {'.Rmd': 'markdown',
                                         \'.rmd': 'markdown',
                                         \'.md': 'markdown',
