@@ -9,7 +9,7 @@ SHELL="bash"
 EDITOR="vim"
 
 # editor
-    cp .vimrc ~/
+    cp .vimrc $HOME
 
 # shell
     if [ ! -d ~/.config/$SHELL ]; then
@@ -20,4 +20,6 @@ EDITOR="vim"
 # profile
     cp .profile ~/
 
+# scripts
+    cp -r .scripts/ $HOME/.scripts
 
