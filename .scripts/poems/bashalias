@@ -1,0 +1,12 @@
+#!/bin/sh
+
+SEP=";"
+ALIASFORMAT="alias %s=\"%s\"\n"
+
+while read LINE
+do
+    KEY=${LINE%%$SEP*}
+    VALUE=$(echo $LINE | sed -e "s/^$KEY$SEP//g")
+    printf "$ALIASFORMAT" "$KEY" "$VALUE"
+done < "${1:-/dev/stdin}"
+
