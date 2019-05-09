@@ -1,0 +1,24 @@
+a;apropos
+b;cd -
+c;clear
+d;diff
+e;echo
+f;find . -iname
+g;grep -iR
+h;history
+i;install
+j;jobs
+k;kill
+l;ls -al
+m;man
+n;newsboat
+o;open
+p;pkill
+q;qrencode
+r;ranger
+s;source
+t;htop
+u;cd ..
+v;vim
+w;whereis
+x;xclip
