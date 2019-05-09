@@ -1,0 +1,6 @@
+#!/bin/sh
+
+AUTHOR=$1
+PROGRAM=$2
+
+git clone "https://github.com/$AUTHOR/$PROGRAM"
