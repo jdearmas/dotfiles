@@ -1,4 +1,5 @@
 # dotfiles ⊙
+============
 dotfiles is a repo that contains my most updated configuration files.
 
 In addition, it places them in the home directory.
