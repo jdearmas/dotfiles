@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# fuzzy find and edit scripts and configs
+
+$EDITOR $(du -a ~/.scripts/* ~/.config/* | awk '{print $2}' | fzf)
+
