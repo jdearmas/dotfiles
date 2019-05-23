@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# 2, 3, ...: print in n columns
+
+COL=$(basename $0)
+FILE=$*
+[ -z "$*" ] && FILE="-"
+
+pr -$COL -t -l1 "$FILE"
+

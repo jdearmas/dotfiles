@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# list files in a directory and sort them last modified date and time
+
+ls -ltca --color=always
+
