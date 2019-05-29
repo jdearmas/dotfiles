@@ -63,10 +63,6 @@
     " change color of current line number
     hi CursorLineNr ctermfg=4
 
-    " highlight (in red) text that go pass 60 character-columns
-    highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-    match OverLength /\%80v.\+/
-
     " syntax/style of the code you are editing
     set smartindent
 
