@@ -229,11 +229,11 @@
 
 "Snippets
     "C/C++
-            "source
-                autocmd Filetype cpp inoremap ,m int main(int argc, char **argv){<CR><CR>}
+        "source
+            autocmd Filetype cpp inoremap ,m int main(int argc, char **argv){<CR><CR>}
 
-            "makefile
-                autocmd Filetype make inoremap ,t # Makefile for {USE} <CR># Written By: John Carlos De Armas <CR># Date: {DATE}
+        "makefile
+            autocmd Filetype make inoremap ,t # Makefile for {USE} <CR># Written By: John Carlos De Armas <CR># Date: {DATE}
 
 "Colors
 
