@@ -4,7 +4,7 @@
 #determine shell
 #cp $shell configs to $home
 
-
+SHELL="$( env | grep -i shell )"
 SHELL="bash"
 EDITOR="vim"
 
