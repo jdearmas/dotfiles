@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# groff to pdf one-line
+
+FILE=$(echo "$1" | grep "^.*\." - | sed 's/\..*$//g' )
+PDFFILE="$FILE.pdf"
+
+groff -ms -Tpdf $1 > "$FILE.pdf"

@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# output a snippet of troff for a code section
+
+cat <<END
+.DS
+.CW
+        \$ $1
+`( eval "$1" )| ind`
+.DE
+END
+
