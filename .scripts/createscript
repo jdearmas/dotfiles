@@ -14,7 +14,7 @@ else
     echo "#!/bin/sh" >> $SCRIPT
     chmod +x $SCRIPT
     echo "" >> $SCRIPT
-    echo "# one-line summary" >> $SCRIPT
+    echo "# $NAME: one-line summary" >> $SCRIPT
     echo "" >> $SCRIPT
 
     $EDITOR $SCRIPT
