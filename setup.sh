@@ -12,8 +12,9 @@ EDITOR="vim"
     cp .vimrc $HOME
 
 # shell
+	cp .bashrc ~/
     if [ ! -d ~/.config/$SHELL ]; then
-       mkdir ~/.config/$SHELL
+       mkdir -p ~/.config/$SHELL
        cp -r shells/$SHELL/.config/* ~/.config/$SHELL/
     fi
 
