@@ -11,7 +11,7 @@ export READER="zathura"
 export FILE="ranger"
 
 # less/man colors
-export LESS=-R
+export LESS="-iXR --RAW-CONTROL-CHARS"
 export LESS_TERMCAP_mb=$'\E[1;31m'     # begin bold
 export LESS_TERMCAP_md=$'\E[1;36m'     # begin blink
 export LESS_TERMCAP_me=$'\E[0m'        # reset bold/blink

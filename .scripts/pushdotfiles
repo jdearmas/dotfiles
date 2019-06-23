@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# pushdotfiles: git push dotfiles to origin
+
+
+DIR=/home/john/code/git/dotfiles
+
+cd $DIR
+
+git pull origin master
+
+git add .
+
+git commit -m "added script(s)"
+

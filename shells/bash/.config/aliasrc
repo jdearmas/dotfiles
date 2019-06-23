@@ -13,6 +13,7 @@ alias ka="killall" \
 	x="sxiv -ft *" \
 	sdn="sudo shutdown -h now" \
 	gua="git remote | xargs -L1 git push --all" \
+    gl='git log --graph --oneline --decorate --all --color=auto'
 	ls="ls -hN --color=auto --group-directories-first" \
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
