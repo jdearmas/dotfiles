@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# gitwatch: watch the git status output
+
+
+# have color come out of 'git status' through 'watch' once
+git -c color.status=always status
+
+clear && watch -c -n 2 git status
+
+exit 0
+
