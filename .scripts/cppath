@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# cppath: copy current path to clipboard
+
+echo "$PWD" | xclip -selection clipboard
+
