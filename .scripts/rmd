@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# rmd: entry and query reminders
+
+case $# in
+    0) cat $REMINDERS && exit 0;;
+    1) STRING=$1;;
+    *) echo "Usage: rmd [string] [-]" 1>&2 && exit 1;;
+esac
+
+[ "$STRING" == "-" ] && vim $REMINDERS && exit 0
+
+echo "$STRING" >> $REMINDERS
