@@ -21,6 +21,9 @@ EDITOR="vim"
 # profile
     cp .profile ~/
 
+# tmux
+    cp .tmux.conf ~/
+
 # scripts
     cp -r .scripts/ $HOME/.scripts
 
