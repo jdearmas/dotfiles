@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# viewsource: display the source code of command to STDOUT
+
+case $# in
+    1) CMD=$1;;
+    *) echo "Usage: $0 [command]" 1>&2 && exit 1;;
+esac
+
+cat $(which $CMD)
+
