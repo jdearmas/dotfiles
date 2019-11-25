@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# timer: timer for anything
+
+case $# in
+1) TIME=$1;;
+2) TIME=$1 && MESSAGE=$2;;
+*) echo 'Usage: timer time [message]' 1>&2; exit 1
+esac
+
+
+SECS=60
+SECS=$(( $TIME * $SECS ))
+
+if [ -z "$MESSAGE" ]; then
+    (sleep $SECS; notify-send "🔔 time is up!") &
+else
+    (sleep $SECS; notify-send "$MESSAGE") &
+fi
+
+
