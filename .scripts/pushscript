@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# push script to git repo connected to remote
+
+DIR="$HOME/.scripts"
+NAME=$(cd $DIR && fzf)
+SCRIPTPATH="$DIR/$NAME"
+GITDIR="$HOME/code/git/dotfiles/.scripts"
+
+cp $SCRIPTPATH $GITDIR
