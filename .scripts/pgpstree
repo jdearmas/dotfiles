@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# pgpstree: display the process tree based process name on look up
+
+
+pgrep $1 | xargs -I {} pstree -c -p -A {}
+
