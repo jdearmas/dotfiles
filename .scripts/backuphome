@@ -1,0 +1,33 @@
+#!/bin/sh
+
+# backup the home directory
+
+BACKUPDRIVE=/mnt/backup
+BACKUPDIR=$BACKUPDRIVE/unix/t61/arch/home
+BACKUPFILE=backup.btar
+BACKUPPATH=$BACKUPDIR/backup.btar
+BACKUPDIFFFILE=$(echo -n `date +'%Y-%m-%d'`.backup.diff.btar)
+BACKUPDIFFPATH=$BACKUPDIR/$BACKUPDIFFFILE
+DIFF=0
+
+# mount backup drive
+    mountpoint $BACKUPDRIVE > /dev/null
+    if [ $? -eq 1 ]; then
+        mount $BACKUPDRIVE || dmenumount
+    fi
+
+# check for existing backup
+    [ -e $BACKUPDIR/*.btar ] && DIFF=1
+
+# if no backup exists; create one
+    if [ $DIFF = 0 ]; then
+        btar -F xz -f $BACKUPPATH -c /home/
+
+# if a backup exists; create a diff backup
+    else
+        btar -F xz -d $BACKUPPATH \
+            -f  $BACKUPDIFFPATH \
+            -c /home/
+    fi
+
+    umount $BACKUPDRIVE || dmenuumount
