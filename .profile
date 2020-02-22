@@ -6,7 +6,6 @@
 export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':')"
 export PATH="$PATH:$(du "$HOME/bin/" | cut -f2 | tr '\n' ':')"
 export PATH="$PATH:$(du "$HOME/go/bin" | cut -f2 | tr '\n' ':')"
-export PATH="$PATH:$(du "$HOME/dwns/tau/tau-2.29/x86_64/bin" | cut -f2 | tr '\n' ':')"
 export EDITOR="vim"
 export TERMINAL="st"
 export BROWSER="qutebrowser"
