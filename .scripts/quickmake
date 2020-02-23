@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# quickmake: quickly compile a pre-configured enviroment of a makefile
+
+file=$(readlink -f "$1")
+dir=$(dirname "$file")
+base="${file%.*}"
+
+make 2>&1 >& /dev/pts/8
+#make 2>&1 >& "$TTY"
+
+
