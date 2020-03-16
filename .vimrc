@@ -6,6 +6,7 @@
 
 " Map leader to <space>
 	let mapleader=' '
+	let mapleader=','
 
 " General Settings
     " fix backspace
@@ -248,7 +249,6 @@
 
 
 "Plugins Manager
-
     "Install, if not already
         if empty(glob('~/.vim/autoload/plug.vim'))
               silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -256,31 +256,65 @@
                 autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
         endif
 
+
     "Plugins
-            filetype plugin indent on    " required
-            call plug#begin('~/.vim/plugged')
-                    Plug 'junegunn/goyo.vim'
-                    Plug 'PotatoesMaster/i3-vim-syntax'
-                    Plug 'jreybert/vimagit'
-                    Plug 'LukeSmithxyz/vimling'
-                    Plug 'vimwiki/vimwiki'
-                    Plug 'dag/vim-fish'
-            call plug#end()
+        filetype plugin indent on    " required
+        call plug#begin('~/.vim/plugged')
+                Plug 'junegunn/goyo.vim'
+                Plug 'PotatoesMaster/i3-vim-syntax'
+                Plug 'jreybert/vimagit'
+                Plug 'LukeSmithxyz/vimling'
+                Plug 'vimwiki/vimwiki'
+                Plug 'dag/vim-fish'
+                Plug 'vim-scripts/Nmap-syntax-highlight'
+                Plug 'mattn/emmet-vim'
+                Plug 'jalvesaq/Nvim-R'
+                Plug 'jalvesaq/vimcmdline'
+                Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+        call plug#end()
+
+    "nvimr
+   "let R_in_buffer = 0
+       let R_tmux_split = 1
+       let R_term = 'st'
 
     " vimwiki
-            " Ensure files are read as what I want:
-                let g:vimwiki_dir_link = 'index'
-                let g:vimwiki_ext2syntax = {'.Rmd': 'markdown',
-                                        \'.rmd': 'markdown',
-                                        \'.md': 'markdown',
-                                        \'.markdown': 'markdown',
-                                        \'.mdown': 'markdown'}
-                autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/*
-                                        \set filetype=markdown
-                autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man
-                                        \set filetype=groff
-                autocmd BufRead,BufNewFile *.tex
-                                        \set filetype=tex
+    " Ensure files are read as what I want:
+        let g:vimwiki_dir_link = 'index'
+        let g:vimwiki_list = [{'path': '~/vimwiki'},
+                    \{'path': '~/docs/work/blog'}]
+        let g:vimwiki_ext2syntax = {'.Rmd': 'markdown',
+                                \'.rmd': 'markdown',
+                                \'.md': 'markdown',
+                                \'.markdown': 'markdown',
+                                \'.mdown': 'markdown'}
+        autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/*
+                                \set filetype=markdown
+        autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man
+                                \set filetype=nroff
+        autocmd BufRead,BufNewFile *.tex
+                                \set filetype=tex
+        autocmd BufRead,BufNewFile *.nmap
+                                \set filetype=nmap
 
-" Experimental
+        nnoremap <leader>tt :VimwikiToggleListItem<CR>
+
+    " vimcmdline
+        let cmdline_map_start          = ',s'
+        let cmdline_map_send           = '<Space>'
+        let cmdline_map_send_and_stay  = '<LocalLeader><Space>'
+        let cmdline_map_source_fun     = '<LocalLeader>f'
+        let cmdline_map_send_paragraph = '<LocalLeader>p'
+        let cmdline_map_send_block     = '<LocalLeader>b'
+        let cmdline_map_quit           = '<LocalLeader>q'
+
+        " vimcmdline options
+        let cmdline_vsplit      = 0      " Split the window vertically
+        let cmdline_esc_term    = 1      " Remap <Esc> to :stopinsert in Neovim's terminal
+        let cmdline_in_buffer   = 1      " Start the interpreter in a Neovim's terminal
+        let cmdline_term_height = 15     " Initial height of interpreter window or pane
+        let cmdline_term_width  = 80     " Initial width of interpreter window or pane
+        let cmdline_tmp_dir     = '/tmp' " Temporary directory to save files
+        let cmdline_outhl       = 1      " Syntax highlight the output
+        let cmdline_auto_scroll = 1      " Keep the cursor at the end of
 
