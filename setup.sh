@@ -25,5 +25,6 @@ EDITOR="vim"
     cp .tmux.conf ~/
 
 # scripts
-    cp -r .scripts/ $HOME/.scripts
+    mkdir $HOME/bin
+    cp -r bin/ $HOME/bin
 

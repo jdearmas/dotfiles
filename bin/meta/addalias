@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# addalias: create and alias to \$ALIAS
+
+case $# in
+    2) SHORT=$1 && LONG=$2;;
+    *) echo "Usage: addalias [shortcmd] [longcmd]" 1>&2 && exit 1;;
+esac
+
+
+FORMAT="alias %s=\"%s\"\n"
+SHORT=$1
+LONG=$2
+
+printf "$FORMAT" "$SHORT" "$LONG" >> $ALIAS
+

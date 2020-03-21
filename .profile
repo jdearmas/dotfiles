@@ -2,9 +2,10 @@
 # Profile file. Runs on login.
 
 
-# Adds `~/.scripts` and all subdirectories to $PATH
-export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':')"
-export PATH="$PATH:$(du "$HOME/bin/" | cut -f2 | tr '\n' ':')"
+export USERBIN="$HOME/bin"
+
+# Adds `$USERBIN` and all subdirectories to $PATH
+export PATH="$PATH:$(du "$USERBIN" | cut -f2 | tr '\n' ':')"
 export PATH="$PATH:$(du "$HOME/go/bin" | cut -f2 | tr '\n' ':')"
 export EDITOR="vim"
 export TERMINAL="st"
@@ -13,16 +14,14 @@ export READER="zathura"
 export FILE="ranger"
 export BIB="$HOME/Documents/LaTeX/uni.bib"
 export REFER="$HOME/.referbib"
-export SUDO_ASKPASS="$HOME/.scripts/tools/dmenupass"
+export SUDO_ASKPASS="$USERBIN/tools/dmenupass"
 export PIX="$HOME/.pix/"
-export TIMESHEET="$HOME/vimwiki/usfit/timesheet.wiki"
 export PRINTER="hp_wireless" # cups queue-name
 export REMINDERS="$HOME/vimwiki/5-min.wiki" # quick reminders
 export SHOP="$HOME/vimwiki/shop.wiki"
 export ALIAS="$HOME/.config/aliasrc"
 export TMP="$HOME/docs/personal/tmp"
 export RESUME="$HOME/docs/work/resume/code/resume"
-export WEBSITE="https://googlemaps.dearmas.xyz:8080"
 export CALCURSE_CALDAV_PASSWORD=""
 export FLASK_ENV="development"
 export DESKTOP="192.168.0.6"
@@ -45,6 +44,6 @@ echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx
 
 # Switch escape and caps if tty:
-sudo -n loadkeys ~/.scripts/ttymaps.kmap 2>/dev/null
+sudo -n loadkeys $USERBIN/ttymaps.kmap 2>/dev/null
 
 export LESS="-iXR --RAW-CONTROL-CHARS"

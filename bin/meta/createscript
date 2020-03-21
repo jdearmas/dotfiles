@@ -1,0 +1,26 @@
+#!/bin/sh
+
+# create a script
+
+SCRIPTDIR="$USERBIN"
+
+read -erp "Name of script: " NAME
+SCRIPT=$SCRIPTDIR/$NAME
+
+if [ -f $SCRIPT ]; then
+    printf "%s alread exists in %s" $NAME $SCRIPTDIR
+    exit
+else
+    echo "#!/bin/sh" >> $SCRIPT
+    chmod +x $SCRIPT
+    echo "" >> $SCRIPT
+    echo "# $NAME: one-line summary" >> $SCRIPT
+    echo "" >> $SCRIPT
+
+    $EDITOR $SCRIPT
+fi
+
+
+
+
+

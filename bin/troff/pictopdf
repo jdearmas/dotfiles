@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# pictopdf: compile groff pic to pdf
+
+FILE=$(echo "$1" | grep "^.*\." - | sed 's/\..*$//g' )
+PDFFILE="$FILE.pdf"
+
+groff -p -ms -Tpdf $1 > "$FILE.pdf"
+
