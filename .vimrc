@@ -6,7 +6,7 @@
 
 " Map leader to <space>
 	let mapleader=' '
-	let mapleader=','
+	let localmapleader=','
 
 " General Settings
     " fix backspace
