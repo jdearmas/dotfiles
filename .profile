@@ -1,49 +1,77 @@
-#!/bin/bash
-# Profile file. Runs on login.
+#!/bin/zsh
 
+# zsh profile file. Runs on login. Environmental variables are set here.
 
-export USERBIN="$HOME/bin"
+# If you don't plan on reverting to bash, you can remove the link in ~/.profile
+# to clean up.
 
-# Adds `$USERBIN` and all subdirectories to $PATH
-export PATH="$PATH:$(du "$USERBIN" | cut -f2 | tr '\n' ':')"
-export PATH="$PATH:$(du "$HOME/go/bin" | cut -f2 | tr '\n' ':')"
-export EDITOR="vim"
+# Adds `~/.local/bin` to $PATH
+export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | paste -sd ':')"
+
+# Default programs:
+export EDITOR="nvim"
 export TERMINAL="st"
 export BROWSER="qutebrowser"
 export READER="zathura"
-export FILE="ranger"
-export BIB="$HOME/Documents/LaTeX/uni.bib"
-export REFER="$HOME/.referbib"
-export SUDO_ASKPASS="$USERBIN/tools/dmenupass"
-export PIX="$HOME/.pix/"
-export PRINTER="hp_wireless" # cups queue-name
-export REMINDERS="$HOME/vimwiki/5-min.wiki" # quick reminders
-export SHOP="$HOME/vimwiki/shop.wiki"
-export ALIAS="$HOME/.config/aliasrc"
-export TMP="$HOME/docs/personal/tmp"
-export RESUME="$HOME/docs/work/resume/code/resume"
-export CALCURSE_CALDAV_PASSWORD=""
-export FLASK_ENV="development"
-export DESKTOP="192.168.0.6"
+export VPN_PROVIDER="pia"
 
-# less/man colors
+# Default Files:
+export REMINDERS="$HOME/docs/wiki/todos/index.wiki" # quick reminders
+export ALIAS=${XDG_CONFIG_HOME:-$HOME/.config}/shortcutrc
+
+# ~/ Clean-up:
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+#export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority" # This line will break some DMs.
+export NOTMUCH_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/notmuch-config"
+export GTK2_RC_FILES="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-2.0/gtkrc-2.0"
+export LESSHISTFILE="-"
+export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
+export INPUTRC="${XDG_CONFIG_HOME:-$HOME/.config}/inputrc"
+export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
+#export GNUPGHOME="$XDG_DATA_HOME/gnupg"
+export WINEPREFIX="${XDG_DATA_HOME:-$HOME/.local/share}/wineprefixes/default"
+export KODI_DATA="${XDG_DATA_HOME:-$HOME/.local/share}/kodi"
+export PASSWORD_STORE_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/password-store"
+export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
+export ANDROID_SDK_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/android"
+export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"
+export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
+export ANSIBLE_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/ansible/ansible.cfg"
+export UNISON="${XDG_DATA_HOME:-$HOME/.local/share}/unison"
+export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/history"
+
+# Other program settings:
+export CURL_HOME="$XDG_CONFIG_HOME/curl"
+export DICS="/usr/share/stardict/dic/"
+export SUDO_ASKPASS="$HOME/.local/bin/dmenupass"
+export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
 export LESS=-R
-export LESS_TERMCAP_mb=$'\E[1;31m'     # begin bold
-export LESS_TERMCAP_md=$'\E[1;36m'     # begin blink
-export LESS_TERMCAP_me=$'\E[0m'        # reset bold/blink
-export LESS_TERMCAP_so=$'\E[01;44;33m' # begin reverse video
-export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
-export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
-export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
+export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"
+export LESS_TERMCAP_md="$(printf '%b' '[1;36m')"
+export LESS_TERMCAP_me="$(printf '%b' '[0m')"
+export LESS_TERMCAP_so="$(printf '%b' '[01;44;33m')"
+export LESS_TERMCAP_se="$(printf '%b' '[0m')"
+export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"
+export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
+export LESSOPEN="| /usr/bin/highlight -O ansi %s 2>/dev/null"
+export QT_QPA_PLATFORMTHEME="gtk2"	# Have QT use gtk2 theme.
+export MOZ_USE_XINPUT2="1"		# Mozilla smooth scrolling/touchpads.
+export AWT_TOOLKIT="MToolkit wmname LG3D"	#May have to install wmname
+export _JAVA_AWT_WM_NONREPARENTING=1	# Fix for Java applications in dwm
 
-[ ! -f ~/.shortcuts ] && shortcuts >/dev/null 2>&1
+[ ! -f ${XDG_CONFIG_HOME:-$HOME/.config}/shortcutrc ] && shortcuts >/dev/null 2>&1 &
 
-echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc"
+if pacman -Qs libxft-bgra >/dev/null 2>&1; then
+	# Start graphical server on tty1 if not already running.
+	[ "$(tty)" = "/dev/tty1" ] && ! pidof Xorg >/dev/null 2>&1  && exec startx
+else
+	echo "\033[31mIMPORTANT\033[0m: Note that \033[32m\`libxft-bgra\`\033[0m must be installed for this build of dwm.
+Please run:
+	\033[32myay -S libxft-bgra\033[0m
+and replace \`libxft\`"
+fi
 
-# Start graphical server if i3 not already running.
-[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx
-
-# Switch escape and caps if tty:
-sudo -n loadkeys $USERBIN/ttymaps.kmap 2>/dev/null
-
-export LESS="-iXR --RAW-CONTROL-CHARS"
+# Switch escape and caps if tty and no passwd required:
+sudo -n loadkeys ${XDG_DATA_HOME:-$HOME/.local/share}/larbs/ttymaps.kmap 2>/dev/null
