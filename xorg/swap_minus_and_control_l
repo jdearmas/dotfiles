@@ -1,0 +1,6 @@
+! MINUS=48
+! CONTROL_L=37
+
+keycode  37 = minus underscore minus underscore
+keycode  48 = Control_L NoSymbol Control_L
+add control = Control_L
